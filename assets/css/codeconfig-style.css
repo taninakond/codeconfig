@@ -35,6 +35,10 @@ img {
   max-width: 100%;
 }
 
+section {
+  padding: 80px 0;
+}
+
 .container {
   width: 100%;
   margin: 0 auto;
@@ -65,6 +69,10 @@ img {
   background: linear-gradient(180deg, #476DF4 -12.76%, #6083FF 38.44%, #89A3FF 139.29%);
 }
 
+.text-center {
+  text-align: center;
+}
+
 .d-flex {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -93,6 +101,32 @@ img {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
+}
+
+.flex-col {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.flex-row {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.section-title {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+}
+.section-title h2 {
+  color: #0D0D0D;
+}
+.section-title h2 span {
+  color: #476DF4;
 }
 
 /* #####################################
@@ -126,13 +160,13 @@ h3 {
 }
 
 h4 {
-  font-size: 25px;
-  line-height: 30px;
+  font-size: 24px;
+  line-height: 28px;
 }
 
 h5 {
-  font-size: 16px;
-  line-height: 30px;
+  font-size: 18px;
+  line-height: 25px;
 }
 
 h6 {
@@ -142,6 +176,9 @@ h6 {
 
 p {
   margin-bottom: 20px;
+  font-size: 18px;
+  line-height: 24px;
+  font-weight: 400;
 }
 
 .codeconfig-header {
@@ -168,6 +205,11 @@ p {
   line-height: 22px;
   color: #4F5B6D;
   padding: 10px 15px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li a:hover {
+  color: #476DF4;
 }
 .codeconfig-header .header-menu-wrap .main-header-menu li.contact-btn a {
   color: #ffffff;
@@ -208,6 +250,7 @@ p {
           box-shadow: 0px 0px 60px 30px rgba(0, 0, 0, 0.0784313725);
   border-radius: 4px;
   left: -100%;
+  display: none;
 }
 .codeconfig-header .header-menu-wrap .main-header-menu li.has-children .sub-menu li {
   display: block;
@@ -236,6 +279,15 @@ p {
 .codeconfig-header .header-menu-wrap .main-header-menu li.has-children .sub-menu li a:hover, .codeconfig-header .header-menu-wrap .main-header-menu li.has-children .sub-menu li a:focus {
   background-color: rgba(71, 109, 244, 0.1);
 }
+.codeconfig-header .header-menu-wrap .main-header-menu li.has-children .sub-menu li.current-menu-item a {
+  background-color: rgba(71, 109, 244, 0.1);
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li.has-children:hover .sub-menu {
+  display: block;
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li.current-menu-item a {
+  color: #476DF4;
+}
 .codeconfig-header.sticky {
   padding: 10px 0;
   background-color: #fff;
@@ -252,7 +304,7 @@ p {
 *
 ***************************/
 .hero {
-  padding: 100px 0;
+  padding: 100px 0 0;
 }
 .hero .top-right {
   border-radius: 535px;
@@ -288,10 +340,144 @@ p {
           filter: blur(170px);
   height: 550px;
   width: 500px;
+  z-index: -1;
 }
 .hero .hero-wrapper .content-area h1, .hero .hero-wrapper .content-area p, .hero .hero-wrapper .content-area a {
   position: relative;
   z-index: 1;
+}
+.hero .hero-wrapper .content-area p {
+  font-size: 20px;
+  line-height: 30px;
+}
+
+/***************************
+*
+**         Home Products Area
+*
+***************************/
+.codeconfig-products {
+  padding: 30px 0 100px;
+}
+
+.iconbox-wrapper {
+  padding-top: 28px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 24px 1fr 24px 1fr;
+  grid-template-columns: repeat(3, 1fr);
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
+  grid-gap: 24px;
+}
+
+.iconbox-wrapper > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+
+.iconbox-wrapper > *:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+}
+
+.iconbox-wrapper > *:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 5;
+}
+.iconbox-wrapper .iconbox {
+  padding: 60px 35px;
+  background: #fff;
+  -webkit-box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.05);
+  border-radius: 16px;
+}
+.iconbox-wrapper .iconbox h4 {
+  padding-top: 15px;
+}
+.iconbox-wrapper .iconbox a {
+  font-size: 16px;
+  line-height: 24px;
+  font-family: "Poppins", sans-serif;
+  color: #476DF4;
+  font-weight: 600;
+  position: relative;
+}
+.iconbox-wrapper .iconbox a img {
+  position: absolute;
+  top: calc(50% - 6.5px);
+  right: -20px;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.iconbox-wrapper .iconbox a:hover img {
+  right: -30px;
+}
+
+.codeconfig-excellent-products .iconbox-wrapper .iconbox {
+  background: currentColor;
+  padding: 30px 35px;
+}
+.codeconfig-excellent-products .iconbox-wrapper .iconbox p {
+  color: #4F5B6D;
+}
+
+.codeconfig-counter .counter-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[4];
+  grid-template-columns: repeat(4, 1fr);
+  -ms-grid-rows: auto;
+  grid-template-rows: auto;
+  background: #fff;
+  -webkit-box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.05);
+  margin-top: 48px;
+}
+
+.codeconfig-counter .counter-wrapper > *:nth-child(1) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 1;
+}
+
+.codeconfig-counter .counter-wrapper > *:nth-child(2) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 2;
+}
+
+.codeconfig-counter .counter-wrapper > *:nth-child(3) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 3;
+}
+
+.codeconfig-counter .counter-wrapper > *:nth-child(4) {
+  -ms-grid-row: 1;
+  -ms-grid-column: 4;
+}
+.codeconfig-counter .counter-wrapper .counter-box {
+  padding: 60px 80px;
+  position: relative;
+}
+.codeconfig-counter .counter-wrapper .counter-box .counter-icon {
+  width: 68px;
+  height: 68px;
+  margin: 0 auto;
+  background: #fff;
+  -webkit-box-shadow: 0px 8px 20px 0px rgba(71, 109, 244, 0.16);
+          box-shadow: 0px 8px 20px 0px rgba(71, 109, 244, 0.16);
+  border-radius: 500px;
+}
+.codeconfig-counter .counter-wrapper .counter-box::after {
+  position: absolute;
+  content: "";
+  width: 2px;
+  height: 240px;
+  background: #EEF1F9;
+  top: 60px;
+  right: 0;
+}
+.codeconfig-counter .counter-wrapper .counter-box:last-child::after {
+  display: none;
 }
 
 @media only screen and (min-width: 769px) {
