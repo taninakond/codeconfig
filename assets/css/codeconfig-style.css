@@ -1,0 +1,332 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  border: none;
+  outline: none;
+  scroll-behavior: smooth;
+}
+
+html {
+  width: 100%;
+  max-width: 100%;
+  font-size: 100%;
+}
+
+html, body {
+  height: 100%;
+}
+
+body {
+  font-size: 16px;
+  line-height: 26px;
+  color: #4F5B6D;
+  font-family: "Poppins", sans-serif;
+}
+
+/* #####################################
+*           GLOBAL STYLE
+* ##################################### 
+*/
+img {
+  height: auto;
+  max-width: 100%;
+}
+
+.container {
+  width: 100%;
+  margin: 0 auto;
+  max-width: 1235px;
+  padding: 0 25px;
+}
+
+.transition {
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+
+.btn {
+  display: inline-block;
+  padding: 14px 24px;
+  border-radius: 4px;
+  font-size: 17px;
+  line-height: 28px;
+  position: relative;
+  z-index: 1;
+  font-weight: 400;
+  color: #ffffff;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(-12.76%, #89A3FF), color-stop(38.44%, #6083FF), color-stop(139.29%, #476DF4));
+  background: linear-gradient(180deg, #89A3FF -12.76%, #6083FF 38.44%, #476DF4 139.29%);
+}
+.btn:hover, .btn:focus {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(-12.76%, #476DF4), color-stop(38.44%, #6083FF), color-stop(139.29%, #89A3FF));
+  background: linear-gradient(180deg, #476DF4 -12.76%, #6083FF 38.44%, #89A3FF 139.29%);
+}
+
+.d-flex {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.align-center {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.space-between {
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.flex-center {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+/* #####################################
+*          TYPOGRAPHY SETTINGS
+* ##################################### 
+*/
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Roboto", sans-serif;
+  margin-bottom: 20px;
+}
+
+a {
+  font-family: "Poppins", sans-serif;
+}
+
+h1 {
+  font-size: 56px;
+  line-height: 78px;
+  font-weight: 700;
+  color: #000000;
+}
+
+h2 {
+  font-size: 40px;
+  line-height: 50px;
+}
+
+h3 {
+  font-size: 30px;
+  line-height: 30px;
+}
+
+h4 {
+  font-size: 25px;
+  line-height: 30px;
+}
+
+h5 {
+  font-size: 16px;
+  line-height: 30px;
+}
+
+h6 {
+  font-size: 14px;
+  line-height: 20px;
+}
+
+p {
+  margin-bottom: 20px;
+}
+
+.codeconfig-header {
+  padding: 22px 0;
+  position: fixed;
+  z-index: 1024;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.codeconfig-header .header-menu-wrap .logo {
+  line-height: 0;
+}
+.codeconfig-header .header-menu-wrap .logo img {
+  max-width: 100%;
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li {
+  list-style: none;
+  display: inline-block;
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li a {
+  display: block;
+  font-size: 18px;
+  line-height: 22px;
+  color: #4F5B6D;
+  padding: 10px 15px;
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li.contact-btn a {
+  color: #ffffff;
+  padding: 9px 13px;
+  border-radius: 4px;
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(-12.76%, #89A3FF), color-stop(38.44%, #6083FF), color-stop(139.29%, #476DF4));
+  background: linear-gradient(180deg, #89A3FF -12.76%, #6083FF 38.44%, #476DF4 139.29%);
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li.contact-btn a:hover, .codeconfig-header .header-menu-wrap .main-header-menu li.contact-btn a:focus {
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(-12.76%, #476DF4), color-stop(38.44%, #6083FF), color-stop(139.29%, #89A3FF));
+  background: linear-gradient(180deg, #476DF4 -12.76%, #6083FF 38.44%, #89A3FF 139.29%);
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li.has-children {
+  position: relative;
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li.has-children > a {
+  position: relative;
+  padding-right: 20px;
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li.has-children > a:after {
+  position: absolute;
+  content: "";
+  height: 8px;
+  width: 8px;
+  border-bottom: 2px solid #476DF4;
+  border-right: 2px solid #476DF4;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+  top: 14px;
+  right: 0;
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li.has-children .sub-menu {
+  position: absolute !important;
+  width: 430px;
+  padding: 25px;
+  background: #fff;
+  -webkit-box-shadow: 0px 0px 60px 30px rgba(0, 0, 0, 0.0784313725);
+          box-shadow: 0px 0px 60px 30px rgba(0, 0, 0, 0.0784313725);
+  border-radius: 4px;
+  left: -100%;
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li.has-children .sub-menu li {
+  display: block;
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li.has-children .sub-menu li a {
+  border-radius: 4px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+  font-size: 16px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li.has-children .sub-menu li a img {
+  margin-right: 15px;
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li.has-children .sub-menu li a span small {
+  display: block;
+  margin-top: 5px;
+}
+.codeconfig-header .header-menu-wrap .main-header-menu li.has-children .sub-menu li a:hover, .codeconfig-header .header-menu-wrap .main-header-menu li.has-children .sub-menu li a:focus {
+  background-color: rgba(71, 109, 244, 0.1);
+}
+.codeconfig-header.sticky {
+  padding: 10px 0;
+  background-color: #fff;
+  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+          box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+}
+.codeconfig-header.sticky .header-menu-wrap .logo img {
+  max-width: 70%;
+}
+
+/***************************
+*
+**         Hero Area
+*
+***************************/
+.hero {
+  padding: 100px 0;
+}
+.hero .top-right {
+  border-radius: 535px;
+  background: rgba(235, 172, 196, 0.2);
+  -webkit-filter: blur(170px);
+          filter: blur(170px);
+  height: 550px;
+  width: 500px;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.hero .hero-wrapper {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (1fr)[2];
+  grid-template-columns: repeat(2, 1fr);
+}
+.hero .hero-wrapper .back-content {
+  position: absolute;
+  border-radius: 535px;
+  background: rgba(126, 155, 255, 0.2);
+  -webkit-filter: blur(170px);
+          filter: blur(170px);
+  height: 550px;
+  width: 500px;
+}
+.hero .hero-wrapper .back-rocket {
+  position: absolute;
+  border-radius: 535px;
+  background: rgba(255, 13, 106, 0.18);
+  -webkit-filter: blur(170px);
+          filter: blur(170px);
+  height: 550px;
+  width: 500px;
+}
+.hero .hero-wrapper .content-area h1, .hero .hero-wrapper .content-area p, .hero .hero-wrapper .content-area a {
+  position: relative;
+  z-index: 1;
+}
+
+@media only screen and (min-width: 769px) {
+  .bars {
+    display: none;
+  }
+}
+@media only screen and (max-width: 768px) {
+  .codeconfig-header .header-menu-wrap .logo-wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    width: 100%;
+  }
+  .codeconfig-header .header-menu-wrap .logo-wrapper .bars {
+    display: block;
+    height: 30px;
+    width: 30px;
+  }
+  .codeconfig-header .header-menu-wrap .logo-wrapper .bars span {
+    width: 100%;
+    height: 4px;
+    display: block;
+    background-color: #476DF4;
+    border-radius: 5px;
+  }
+  .codeconfig-header .header-menu-wrap .logo-wrapper .bars span:not(:last-child) {
+    margin-bottom: 5px;
+  }
+  .codeconfig-header .header-menu-wrap .main-header-menu {
+    position: fixed;
+    left: -100%;
+    top: 0;
+  }
+}
