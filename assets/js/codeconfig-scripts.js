@@ -20,3 +20,37 @@ function codeConfigOnLoad(){
 }
 
 window.addEventListener('load', codeConfigOnLoad);
+
+
+(function($){
+    $(document).ready(function(){
+
+        // Counter js start
+        $(document).ready(function() {
+
+            var counters = $(".cc_counter");
+            var countersQuantity = counters.length;
+            var counter = [];
+          
+            for (i = 0; i < countersQuantity; i++) {
+              counter[i] = parseInt(counters[i].innerHTML);
+            }
+          
+            var cc_counter = function(start, value, id) {
+              var localStart = start;
+              setInterval(function() {
+                if (localStart < value) {
+                  localStart++;
+                  counters[id].innerHTML = localStart;
+                }
+              }, 1);
+            }
+          
+            for (j = 0; j < countersQuantity; j++) {
+                cc_counter(0, counter[j], j);
+            }
+          });
+        //   Counter js end 
+
+    });
+})(jQuery);
