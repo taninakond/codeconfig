@@ -37,12 +37,13 @@ body {
 * ##################################### 
 */
 
-img {
-    height: auto;
-    max-width: 100%;
+img, svg {
+    width: 100%;
+    min-height: auto;
 }
 section {
     padding: 80px 0;
+    overflow-x: clip;
 }
 .container {
     width: 100%;
@@ -84,6 +85,7 @@ section {
     -webkit-text-fill-color: transparent;
 
     img {
+        width: 15px;
         position: absolute;
         top: calc(50% - 6.5px);
         right: -20px;
@@ -158,15 +160,13 @@ section {
 }
 .cc-shape {
     position: absolute;
+    z-index: -1;
 }
 .cc-shape:before {
     position: absolute;
     content: "";
     width: 100%;
     height: 100%;
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
     border-radius: 500px;
     filter: blur(170px);
     z-index: -1;
@@ -177,6 +177,53 @@ section {
 .shape-blue::before {
     background: rgba(71, 109, 244, 0.09);
 }
+.shape-large {
+    width: 1159px;
+    height: 1183px;
+}
+.shape-medium {
+    width: 873px;
+    height: 873px;
+}
+.shape-small {
+    width: 677px;
+    height: 691px;
+}
+.shape-xsmall {
+    width: 298px;
+    height: 303px;
+}
+.shape-oval {
+    width: 591px;
+    height: 381px;
+}
+.shape-middle {
+    left: calc(50% - 340px);
+}
+.shape-top {
+    bottom: 50%;
+}
+.shape-top-0 {
+    top: 0;
+}
+.shape-bottom {
+    top: 50%;
+}
+.shape-bottom-0 {
+    bottom: 0;
+}
+.shape-left {
+   right: 50%;
+}
+.shape-left-0 {
+    left: 0;
+ }
+.shape-right {
+   left: 50%;
+}
+.shape-right-0 {
+    right: 0;
+ }
 
 
 .cc-blog {
@@ -186,7 +233,7 @@ section {
     justify-content: center;
 
     .blog-item {
-        width: 31.95%;
+        width: 379px;
         padding: 0 25px 50px;
         border-radius: 12px;
         background: var(--White, #FFF);
@@ -490,22 +537,22 @@ p {
 
 .hero {
     padding: 100px 0 0;
-    background-image: url(/assets/images/hero-bg.svg);
-    background-position: center;
-    background-repeat: no-repeat;
-    background-size: cover;
-
-    .hero-shape-1 {
-        width: 507.876px;
-        height: 516.565px;
-        transform: rotate(3.652deg);
-        right: 0;
-        bottom: 0;
-    }
 
     .hero-wrapper {
 
+        .heading-bg {
+            position: absolute;
+            left: -180px;
+            top: 0;
+            width: 930px;
+            height: 280px;
+            background-image: url(/assets/images/heading-bg.svg);
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: contain;
+        }
         .content-area {
+            width: 50%;
 
             h1, p, a {
                 position: relative;
@@ -518,32 +565,40 @@ p {
                     &::after {
                         position: absolute;
                         left: 0;
-                        bottom: -18px;
+                        bottom: 2px;
+                        content: "";
+                        background-position: bottom;
+                        background-size: contain;
+                        background-repeat: no-repeat;
+                        width: 100%;
+                        height: 100%;
                     }
                 }
                 .top-notch {
 
                     &::after {
-                        content: url(/assets/images/top-notch-bg.svg);
+                        background-image: url(/assets/images/top-notch-bg.svg);
                     }
                 }
                 .solution {
 
                     &::after {
-                        content: url(/assets/images/solution-bg.svg);
+                        background-image: url(/assets/images/solution-bg.svg);
                     }
                 }
                 .wordpress {
                     &::after {
-                        content: url(/assets/images/wordpress-bg.svg)
+                        background-image: url(/assets/images/wordpress-bg.svg)
                     }
                 }
-            }
-            
+            }            
             p {
                 font-size: 20px;
                 line-height: 30px;
             }
+        }
+        .hero-animation {
+            width: 50%;
         }
     }
 }
@@ -558,24 +613,6 @@ p {
 .codeconfig-products {
     padding: 30px 0 100px;
 
-    .home-product-shape-1 {
-        width: 873px;
-        height: 873px;
-        left: calc(50% - 1270px);
-        bottom: -450px;
-    }
-    .home-product-shape-2 {
-        width: 832px;
-        height: 849px;
-        top: -134px;
-        right: calc(50% - 960px);
-    }
-    .home-product-shape-3 {
-        width: 677px;
-        height: 691px;
-        top: 0;
-        left: calc(50% - 340px);
-    }
     .logo-bg {
 
         &::after {
@@ -590,18 +627,23 @@ p {
     
 .iconbox-wrapper {
     padding-top: 28px;
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-rows: auto;
-    grid-gap: 24px;
+    justify-content: center;
+    row-gap: 24px;
+    column-gap: 24px;
+
 }
 
 .iconbox  {
+    width: 100%;
+    max-width: 378px;
     padding: 60px 35px;
     background: #fff;
     box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.05);
     border-radius: 16px;
 
+    img {
+        max-width: 60px;
+    }
     h4 {
         padding-top: 15px;
     }
@@ -609,43 +651,38 @@ p {
 
 .codeconfig-excellent-products {
 
-    .shape-excellent-products-1 {
-        width: 832px;
-        height: 849px;
-        left: calc(50% - 1270px);
-        bottom: -560px;
-    }
-    .shape-excellent-products-2 {
-        width: 832px;
-        height: 849px;
-        right: calc(50% - 960px);
-        top: -90px;    
-    }
-
+    .container {
+        max-width: 1070px;
+        
     .iconbox-wrapper {
 
         .iconbox {
             background: currentColor;
             padding: 30px 35px;
+            max-width: 322px;
 
             p {
                 color: #4F5B6D;
             }
         }
     }
+    }
 }
 
 .codeconfig-counter {
 
     .counter-wrapper {
-        display: grid;
-        grid-template-columns: repeat(4, 1fr);
-        grid-template-rows: auto;
+        justify-content: center;
+        row-gap: 24px;
+        column-gap: 2px;
         background: #fff;
         box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.05);
         margin-top: 48px;
+        border-radius: 16px;
 
         .counter-box {
+            width: 100%;
+            max-width: 293px;
             padding: 60px 80px;
             position: relative;
 
@@ -657,6 +694,10 @@ p {
                 box-shadow: 0px 8px 20px 0px rgba(71, 109, 244, 0.16);
                 border-radius: 500px;
                 margin-bottom: 16px;
+
+                img {
+                    max-width: 30px;
+                }
             }
 
             &::after {
@@ -705,6 +746,7 @@ p {
             }
 
             img {
+                max-width: 80px;
                 border-radius: 500px;
             }
             .testimonial-content {
@@ -842,6 +884,10 @@ footer {
 
                             &:hover {
                                 box-shadow: 0px 0px 10px 6px rgba(255, 255, 255, 0.5)
+                            }
+
+                            img {
+                                max-width: 20px;
                             }
                         }
                     }
@@ -981,8 +1027,15 @@ footer {
         font-size: 18px;
         line-height: 25px;
     }
+
 }
 @media only screen and ( max-width: 1024px ) {
+    section {
+        padding: 50px 0;
+    }
+    .codeconfig-products {
+        padding: 100px 0 50px;
+    }
 
     h1 {
         font-size: 40px;
@@ -1002,6 +1055,22 @@ footer {
     h4 {
         font-size: 20px;
         line-height: 26px;
+    }
+
+    .hero {
+        padding: 100px 0 0;
+    
+        .hero-wrapper {
+            flex-direction: column-reverse;
+
+            .content-area {
+                width: 100%;
+
+            }
+            .hero-animation {
+                width: 100%;
+            }
+        }
     }
 }
 @media only screen and ( max-width: 768px ) {
