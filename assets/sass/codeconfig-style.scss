@@ -169,6 +169,8 @@ section {
     height: 100%;
     border-radius: 500px;
     filter: blur(170px);
+    left: 0;
+    top: 0;
     z-index: -1;
 }
 .shape-red::before {
@@ -188,6 +190,10 @@ section {
 .shape-small {
     width: 677px;
     height: 691px;
+}
+.shape-xsmall-2 {
+    width: 460px;
+    height: 460px;
 }
 .shape-xsmall {
     width: 298px;
@@ -213,13 +219,13 @@ section {
     bottom: 0;
 }
 .shape-left {
-   right: 50%;
+   right: 60%;
 }
 .shape-left-0 {
     left: 0;
  }
 .shape-right {
-   left: 50%;
+   left: 60%;
 }
 .shape-right-0 {
     right: 0;
@@ -235,6 +241,19 @@ section {
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
+    z-index: -1;
+}
+.heading-bg-2 {
+    position: absolute;
+    left: calc(50% - 712px);
+    top: -70px;
+    width: 1425px;
+    height: 280px;
+    background-image: url(/assets/images/heading-bg-2.svg);
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: -1;
 }
 
 
@@ -540,7 +559,7 @@ p {
 ***************************/ 
 
 .hero {
-    padding: 100px 0 0;
+    padding: 90px 0 0;
 
     .hero-wrapper {
 
@@ -1011,6 +1030,75 @@ footer {
 .about-hero {
     padding: 160px 0 0;
 }
+.codeconfig-about {
+    padding: 0;
+
+    .about-item {
+        padding: 20px 0;
+        column-gap: 30px;
+
+        .section-title {
+            width: 100%;
+            max-width: 470px;
+            padding: 50px 0 30px;
+            margin: inherit;
+        }
+
+        .section-image {
+            width: 100%;
+            max-width: 470px;
+        }
+        &:nth-child(even) {
+            flex-direction: row-reverse;
+
+        }
+    }
+}
+
+.codeconfig-Team {
+
+    .team-members {
+        row-gap: 24px;
+        column-gap: 24px;
+        padding-top: 30px;
+
+        .member {
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            width: 100%;
+            max-width: 278px;
+            height: 380px;
+            border-radius: 8px;
+            background: var(--White, #FFF);
+            box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.05);
+            padding: 5px 0;
+            transition: all .3s ease;
+
+            &:hover {
+                box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.2);
+            }
+            .member-photo {
+                display: flex;
+            }
+            .name {
+                font-size: 22px;
+                line-height: 25.3px;
+                font-weight: 600;
+                color: var(--Bllack-2, #151826);
+                margin: 24px 0 12px;
+                padding: 0 15px;
+            }
+            .title {
+                font-weight: 400;
+                padding: 0 15px;
+            }
+        }
+    }
+}
+.about-counter{
+    padding-bottom: 40px;
+}
 
 
 // RESPONSIVE
@@ -1095,8 +1183,25 @@ footer {
     section {
         padding: 50px 0;
     }
+
+    .codeconfig-header {
+        
+        .header-menu-wrap {
+
+            .main-header-menu {
+
+                li {
+
+                    a {
+                        padding: 10px 12px;
+                    }
+                }
+            }
+        }
+    }
+
+
     .hero {
-        padding: 100px 0 0;
     
         .hero-wrapper {
             flex-direction: column-reverse;
@@ -1159,6 +1264,19 @@ footer {
             }
         }
     }
+
+
+    /***************************
+    *
+    **         About Us page
+    *
+    ***************************/ 
+    .about-hero {
+        padding: 150px 0 0;
+    }
+    .about-counter{
+        padding-bottom: 0;
+    }
 }
 
 @media only screen and ( max-width: 768px ) {
@@ -1196,6 +1314,10 @@ footer {
         padding: 30px 0;
     }
 
+
+    .hero {
+        padding: 80px 0 0;
+    }
     .codeconfig-header {
 
         .header-menu-wrap {
@@ -1381,6 +1503,51 @@ footer {
             }
             .right-side {
                 column-gap: 10px;
+            }
+        }
+    }
+
+
+    
+    /***************************
+    *
+    **         About Us page
+    *
+    ***************************/ 
+    .about-hero {
+        padding: 130px 0 0;
+    }
+
+    .codeconfig-about {
+    
+        .about-item {
+            row-gap: 10px;
+            flex-wrap: wrap;
+            flex-direction: column-reverse;
+
+            .section-title {
+                max-width: 100%;
+                padding: 10px 0;
+                text-align: center;
+            }
+            .section-image {
+                max-width: 100%;
+            }
+
+            &:nth-child(even) {
+                flex-direction: column-reverse;
+    
+            }
+        }
+    
+    }
+    .codeconfig-Team {
+        .team-members {
+            .member {
+                .name {
+                    font-size: 20px;
+                    line-height: 22px;
+                }
             }
         }
     }

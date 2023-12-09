@@ -191,6 +191,8 @@ section {
   border-radius: 500px;
   -webkit-filter: blur(170px);
           filter: blur(170px);
+  left: 0;
+  top: 0;
   z-index: -1;
 }
 
@@ -215,6 +217,11 @@ section {
 .shape-small {
   width: 677px;
   height: 691px;
+}
+
+.shape-xsmall-2 {
+  width: 460px;
+  height: 460px;
 }
 
 .shape-xsmall {
@@ -248,7 +255,7 @@ section {
 }
 
 .shape-left {
-  right: 50%;
+  right: 60%;
 }
 
 .shape-left-0 {
@@ -256,7 +263,7 @@ section {
 }
 
 .shape-right {
-  left: 50%;
+  left: 60%;
 }
 
 .shape-right-0 {
@@ -273,6 +280,20 @@ section {
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  z-index: -1;
+}
+
+.heading-bg-2 {
+  position: absolute;
+  left: calc(50% - 712px);
+  top: -70px;
+  width: 1425px;
+  height: 280px;
+  background-image: url(/assets/images/heading-bg-2.svg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  z-index: -1;
 }
 
 .cc-blog {
@@ -536,7 +557,7 @@ p {
 *
 ***************************/
 .hero {
-  padding: 100px 0 0;
+  padding: 90px 0 0;
 }
 .hero .hero-wrapper .content-area {
   width: 50%;
@@ -977,6 +998,87 @@ footer .copyright p {
   padding: 160px 0 0;
 }
 
+.codeconfig-about {
+  padding: 0;
+}
+.codeconfig-about .about-item {
+  padding: 20px 0;
+  -webkit-column-gap: 30px;
+     -moz-column-gap: 30px;
+          column-gap: 30px;
+}
+.codeconfig-about .about-item .section-title {
+  width: 100%;
+  max-width: 470px;
+  padding: 50px 0 30px;
+  margin: inherit;
+}
+.codeconfig-about .about-item .section-image {
+  width: 100%;
+  max-width: 470px;
+}
+.codeconfig-about .about-item:nth-child(even) {
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: reverse;
+      -ms-flex-direction: row-reverse;
+          flex-direction: row-reverse;
+}
+
+.codeconfig-Team .team-members {
+  row-gap: 24px;
+  -webkit-column-gap: 24px;
+     -moz-column-gap: 24px;
+          column-gap: 24px;
+  padding-top: 30px;
+}
+.codeconfig-Team .team-members .member {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  width: 100%;
+  max-width: 278px;
+  height: 380px;
+  border-radius: 8px;
+  background: var(--White, #FFF);
+  -webkit-box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.05);
+          box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.05);
+  padding: 5px 0;
+  -webkit-transition: all 0.3s ease;
+  transition: all 0.3s ease;
+}
+.codeconfig-Team .team-members .member:hover {
+  -webkit-box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.2);
+          box-shadow: 0px 0px 16px 8px rgba(0, 0, 0, 0.2);
+}
+.codeconfig-Team .team-members .member .member-photo {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+.codeconfig-Team .team-members .member .name {
+  font-size: 22px;
+  line-height: 25.3px;
+  font-weight: 600;
+  color: var(--Bllack-2, #151826);
+  margin: 24px 0 12px;
+  padding: 0 15px;
+}
+.codeconfig-Team .team-members .member .title {
+  font-weight: 400;
+  padding: 0 15px;
+}
+
+.about-counter {
+  padding-bottom: 40px;
+}
+
 @media only screen and (min-width: 769px) {
   .bars {
     display: none;
@@ -1036,8 +1138,8 @@ footer .copyright p {
   section {
     padding: 50px 0;
   }
-  .hero {
-    padding: 100px 0 0;
+  .codeconfig-header .header-menu-wrap .main-header-menu li a {
+    padding: 10px 12px;
   }
   .hero .hero-wrapper {
     -webkit-box-orient: vertical;
@@ -1079,6 +1181,17 @@ footer .copyright p {
   footer .footer-bottom .right-side {
     width: 100%;
   }
+  /***************************
+  *
+  **         About Us page
+  *
+  ***************************/
+  .about-hero {
+    padding: 150px 0 0;
+  }
+  .about-counter {
+    padding-bottom: 0;
+  }
 }
 @media only screen and (max-width: 768px) {
   h1 {
@@ -1107,6 +1220,9 @@ footer .copyright p {
   }
   section {
     padding: 30px 0;
+  }
+  .hero {
+    padding: 80px 0 0;
   }
   .codeconfig-header .header-menu-wrap .logo-wrapper {
     display: -webkit-box;
@@ -1273,6 +1389,41 @@ footer .copyright p {
     -webkit-column-gap: 10px;
        -moz-column-gap: 10px;
             column-gap: 10px;
+  }
+  /***************************
+  *
+  **         About Us page
+  *
+  ***************************/
+  .about-hero {
+    padding: 130px 0 0;
+  }
+  .codeconfig-about .about-item {
+    row-gap: 10px;
+    -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .codeconfig-about .about-item .section-title {
+    max-width: 100%;
+    padding: 10px 0;
+    text-align: center;
+  }
+  .codeconfig-about .about-item .section-image {
+    max-width: 100%;
+  }
+  .codeconfig-about .about-item:nth-child(even) {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: reverse;
+        -ms-flex-direction: column-reverse;
+            flex-direction: column-reverse;
+  }
+  .codeconfig-Team .team-members .member .name {
+    font-size: 20px;
+    line-height: 22px;
   }
 }
 @media only screen and (max-width: 575px) {
