@@ -212,6 +212,9 @@ section {
 .shape-top-0 {
     top: 0;
 }
+.shape-top-center {
+    top: 50%;
+}
 .shape-bottom {
     top: 50%;
 }
@@ -283,6 +286,7 @@ section {
                 img {
                     width: 100%;
                     transition: all .5s ease;
+                    border-radius: 8px;
                 }
 
                 &:hover {
@@ -296,21 +300,6 @@ section {
         .post-details {
             padding: 15px 10px 0;
 
-            .post-meta {
-                column-gap: 2px;
-                border-bottom: 1px solid rgba(0, 0, 0, 0.11);;
-                padding-bottom: 15px;
-
-                li {
-                    display: flex;
-                    animation: ce;
-                    column-gap: 10px;
-
-                    img {
-                        width: 18px;
-                    }
-                }
-            }
             a {
 
                 .post-title {
@@ -338,6 +327,21 @@ section {
                 left: calc(50% - 60px);
                 bottom: 50px;
             }
+        }
+    }
+}
+.post-meta {
+    column-gap: 2px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.11);;
+    padding-bottom: 15px;
+
+    li {
+        display: flex;
+        animation: ce;
+        column-gap: 10px;
+
+        img {
+            width: 18px;
         }
     }
 }
@@ -550,6 +554,21 @@ p {
             }
     }
 }
+@media only screen and (min-width: 1025px) {
+    .hide-desktop {
+        display: none;
+    }
+}
+@media only screen and (min-width: 769px) and (max-width: 1024px) {
+    .hide-tab {
+        display: none;
+    }
+}
+@media only screen and (max-width: 768px) {
+    .hide-mobile {
+        display: none;
+    }
+}
 
 
 /***************************
@@ -739,12 +758,29 @@ p {
     background: #fff;
     box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.05);
     border-radius: 16px;
+    transition: all .3s ease;
+
+    &:hover {
+        box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.2);
+    }
 
     img {
         max-width: 60px;
     }
-    h4 {
-        padding-top: 15px;
+    
+    a {
+        h4 {
+            padding-top: 15px;
+            color: var(--Bllack-2, #151826);
+            transition: all .3s ease;
+        }
+
+        &:hover {
+
+            h4 {
+                color: $primary
+            }
+        }
     }
 }
 
@@ -869,6 +905,64 @@ p {
     padding-bottom: 45px;
 }
 
+.subscribe-form {
+    border-radius: 8px;
+    background:#FFF;
+    box-shadow: 0px 12px 10px 0px rgba(0, 0, 0, 0.07);
+    padding: 8px 8px 8px 20px;
+
+    p {
+        margin: 0;
+    }
+    .email {
+        width: 100%;
+
+        input {
+            font-family: Poppins;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: normal;
+            letter-spacing: 0.14px;
+            width: 100%;
+            padding: 0 5px;
+        }
+    }
+    .submit-btn {
+        position: relative;
+        background: linear-gradient(180deg, #89A3FF -12.76%, #6083FF 38.44%, #476DF4 139.29%);
+        transition: all .3s ease;
+        z-index: 1;
+        border-radius: 4px;
+
+        &:hover {
+            background: linear-gradient(180deg, #476DF4 -12.76%, #6083FF 38.44%, #89A3FF 139.29%);
+        }
+
+        &:after {
+            position: absolute;
+            content: url(/assets/images/send-Icon.svg);
+            top: 10px;
+            right: 16px;
+            z-index: -1;
+        }
+
+        input[type=submit] {
+            padding: 10px 40px 10px 15px;
+            color: #fff;
+            font-family: Poppins;
+            font-size: 15px;
+            font-style: normal;
+            font-weight: 400;
+            line-height: 15.4px;
+            letter-spacing: 0.13px;
+            border-radius: 4px;
+            cursor: pointer;
+            background: transparent;
+        }
+    }
+}
+
 footer {
 
     .footer-top {
@@ -927,59 +1021,6 @@ footer {
                 line-height: 27.5px;
                 letter-spacing: 0.23px;
                 padding: 25px 0 10px;
-            }
-            .subscribe-form {
-                border-radius: 8px;
-                background:#FFF;
-                box-shadow: 0px 12px 10px 0px rgba(0, 0, 0, 0.07);
-                padding: 8px 8px 8px 20px;
-
-                p {
-                    margin: 0;
-                }
-                .email {
-                    input {
-                        font-family: Poppins;
-                        font-size: 15px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: normal;
-                        letter-spacing: 0.14px;
-                    }
-                }
-                .submit-btn {
-                    position: relative;
-                    background: linear-gradient(180deg, #89A3FF -12.76%, #6083FF 38.44%, #476DF4 139.29%);
-                    transition: all .3s ease;
-                    z-index: 1;
-                    border-radius: 4px;
-
-                    &:hover {
-                        background: linear-gradient(180deg, #476DF4 -12.76%, #6083FF 38.44%, #89A3FF 139.29%);
-                    }
-
-                    &:after {
-                        position: absolute;
-                        content: url(/assets/images/send-Icon.svg);
-                        top: 10px;
-                        right: 16px;
-                        z-index: -1;
-                    }
-
-                    input[type=submit] {
-                        padding: 10px 40px 10px 15px;
-                        color: #fff;
-                        font-family: Poppins;
-                        font-size: 15px;
-                        font-style: normal;
-                        font-weight: 400;
-                        line-height: 15.4px;
-                        letter-spacing: 0.13px;
-                        border-radius: 4px;
-                        cursor: pointer;
-                        background: transparent;
-                    }
-                }
             }
             .social-icons {
                 padding: 40px 0;
@@ -1188,6 +1229,246 @@ footer {
 }
 
 
+/***************************
+*
+**         Blog page
+*
+***************************/ 
+
+.Blog-hero {
+    padding: 160px 0 60px;
+
+    .blog-banner {
+        column-gap: 30px;
+
+        .section-title {
+            width: 100%;
+            max-width: 550px;
+            margin: inherit;
+
+            p {
+                font-size: 16px;
+                line-height: 30px;
+            }
+
+            .subscribe-form {
+                padding: 0;
+                margin: 25px 0 15px;
+
+                .email input  {
+                    padding: 13px 25px;
+                    border-radius: 4px 0 0 4px;
+                }
+                .submit-btn {
+                    
+                    input[type=submit] {
+                        font-size: 16px;
+                        line-height: 17px;
+                        padding: 16px 24px;
+                    }
+
+                    &::after {
+                        display: none;
+                    }
+                }
+                
+            }
+        }
+        .blog-banner-img {
+            width: 100%;
+            max-width: 360px;
+        }
+
+    }
+}
+.blog-section {
+
+    .blog-head {
+        column-gap: 100px;
+
+        .blog-filter-menu {
+            width: 100%;
+            max-width: 60%;
+
+            ul {
+                column-gap: 10px;
+                li {
+                    font-size: 16px;
+                    line-height: 16px;
+                    font-family: $pop;
+                    color: rgba(79, 91, 109, 1);
+                    padding: 15px 20px;
+                    border-radius: 4px;
+                    cursor: pointer;
+                    background: transparent;
+
+                    &:hover {
+                        color: #fff;
+                        background: var(--Gradient-3, linear-gradient(180deg, #89A3FF -12.76%, #6083FF 38.44%, #476DF4 139.29%));
+                    }
+                }
+            }
+            select {
+                padding: 10px;
+                border-radius: 4px;
+                font-size: 16px;
+                line-height: 16px;
+                font-family: $pop;
+                color: rgba(79, 91, 109, 1);
+                cursor: pointer;
+                width: 100%;
+            }
+        }
+        .blog-search {
+            width: 100%;
+            max-width: 38%;
+
+            form {
+                display: flex;
+
+                input {
+                    width: 90%;
+                    font-size: 16px;
+                    line-height: 22px;
+                    font-weight: 400;
+                    background: rgba(238, 238, 238, 1);
+                    padding: 13px;
+                    border-radius: 0 4px 4px 0;
+                }
+                button {
+                    border-radius: 0px 4px 4px 0px;
+                    background: var(--Gradient-3, linear-gradient(180deg, #89A3FF -12.76%, #6083FF 38.44%, #476DF4 139.29%));
+                    padding: 13px;
+                    cursor: pointer;
+                }
+            }
+        }
+    }
+
+    .cc-blog {
+        width: 100%;
+        max-width: 845px;
+        margin: 0 auto;
+        row-gap: 40px;
+
+        .blog-item {
+            padding: 0 25px 40px;
+            width: 100%;
+
+            .post-details {
+
+                .post-meta {
+                    border: 0;
+
+                    li {
+                        padding: 0 32px;
+                        border-right: 1px solid rgba(0, 0, 0, 0.11);
+
+                        &:last-child {
+                            border: 0;
+                        }
+                    }
+                }
+                .post-title {
+                    font-size: 32px;
+                    line-height: 48px;
+                    font-weight: 700;
+                    color: var(--Black-1, #0D0D0D);
+                }
+                .post-excerpt {
+                    color: var(--Black-4, #79828C);
+                }
+                .post-btn {
+                    left: calc(50% - 85px);
+                    bottom: 40px;
+                }
+            }
+        }
+    }
+    .blog-pagination {
+        padding-top: 40px;
+
+        .nav-links {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            column-gap: 20px;
+
+            .page-numbers {
+                width: 56px;
+                height: 48px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: var(--Black-4, #79828C);
+                font-family: Poppins;
+                font-size: 15px;
+                font-weight: 400;
+                line-height: 14px;
+                border-radius: 4px;
+                background: var(--blue-light-hover, #E3E9FD);
+
+                &:hover, &.current {
+                    color: #fff;
+                    background: var(--Gradient-3, linear-gradient(180deg, #89A3FF -12.76%, #6083FF 38.44%, #476DF4 139.29%));
+                }
+            }
+        }
+    }
+}
+.blog-product {
+    padding-bottom: 40px;
+}
+
+/***************************
+*
+**        Single Blog page
+*
+***************************/ 
+.single-blog-container {
+    max-width: 980px;
+}
+.single-Blog {
+    padding: 160px 0 60px;
+
+    .heading-bg-2 {
+        top: -120px;
+    }
+
+    .single-blog-banner {
+
+        img {
+            border-radius: 8px;
+        }
+
+        .post-meta {
+            margin-top: 20px;
+            border: 0;
+
+            li {
+                padding: 0 32px;
+                border-right: 1px solid rgba(0, 0, 0, 0.11);
+
+                &:last-child {
+                    border: 0;
+                }
+            }
+        }
+        .post-title {
+            font-size: 32px;
+            font-weight: 700;
+            line-height: 48px;
+            color: var(--Black-1, #0D0D0D);
+            padding-top: 15px;
+        }
+    }
+}
+
+
+
+
+
+
 // RESPONSIVE
 @media only screen and (min-width: 769px) {
     .bars {
@@ -1243,6 +1524,23 @@ footer {
             }
         }
     }
+
+    /***************************
+    *
+    **         Blog page
+    *
+    ***************************/ 
+    .blog-section {
+
+        .blog-head {
+            column-gap: 30px;
+
+            .blog-filter-menu ul li {
+                padding: 10px;
+            }
+        }
+    }
+
 
 }
 @media only screen and ( max-width: 1024px ) {
@@ -1364,6 +1662,33 @@ footer {
     .about-counter{
         padding-bottom: 0;
     }
+
+    /***************************
+    *
+    **         Blog page
+    *
+    ***************************/ 
+    .blog-section {
+
+        .blog-head {
+            flex-direction: column-reverse;
+            row-gap: 20px;
+    
+            .blog-filter-menu {
+                max-width: 380px;
+
+            }
+            .blog-search {
+                max-width: 380px;
+    
+            }
+        }
+    }
+    .blog-product {
+        padding-bottom: 0;
+    }
+
+
 }
 
 @media only screen and ( max-width: 768px ) {
@@ -1513,12 +1838,6 @@ footer {
             .post-details {
                 padding: 5px 10px 0;
 
-                .post-meta {
-                    flex-direction: column;
-                    width: fit-content;
-                    margin: 0 auto;
-                }
-
                 a {
 
                     .post-title {
@@ -1530,6 +1849,13 @@ footer {
                 }
             }
         }
+    }
+
+    .post-meta {
+        flex-direction: column;
+        width: fit-content;
+        margin: 0 auto;
+        row-gap: 7px;
     }
 
     .codeconfig-testimonial {
@@ -1602,7 +1928,7 @@ footer {
     *
     ***************************/ 
     .about-hero {
-        padding: 130px 0 0;
+        padding: 130px 0 30px;
     }
 
     .codeconfig-about {
@@ -1638,6 +1964,79 @@ footer {
             }
         }
     }
+
+
+    /***************************
+    *
+    **         Blog page
+    *
+    ***************************/ 
+
+    .Blog-hero {
+        padding: 80px 0 30px;
+
+        .blog-banner {
+            flex-direction: column-reverse;
+            row-gap: 20px;
+
+            .section-title {
+                max-width: 100%;
+
+            }
+            .blog-banner-img {
+                max-width: 100%;
+            }
+
+        }
+    }
+    .blog-section {
+
+        .cc-blog {
+            row-gap: 24px;
+ 
+            .blog-item {
+    
+                .post-details {
+    
+                    .post-meta {
+                        align-items: flex-start;
+    
+                        li {
+                            padding: 0;
+                            border: 0;
+                        }
+                    }
+                    .post-title {
+                        font-size: 20px;
+                        line-height: 28px;
+                    }
+                }
+            }
+        }
+    }
+
+
+    /***************************
+    *
+    **        Single Blog page
+    *
+    ***************************/ 
+    .single-Blog {
+
+        .single-blog-banner {
+
+            .post-meta {
+                margin-top: 20px;
+                align-items: flex-start;
+
+                li {
+                    padding: 0;
+                    border: 0;
+                }
+            }
+        }
+    }
+    
 }
 
 @media only screen and ( max-width: 575px ) {
@@ -1711,4 +2110,38 @@ footer {
             }
         }
     }
+
+        /***************************
+*
+**         Blog page
+*
+***************************/ 
+
+    .Blog-hero {
+
+        .blog-banner {
+
+            .section-title {
+                text-align: center;
+                
+                .subscribe-form {
+                    margin: 15px 0 15px;
+    
+                    .email input  {
+                        padding: 13px 8px;
+                    }
+                    .submit-btn {
+                        
+                        input[type=submit] {
+                            font-size: 14px;
+                            padding: 16px 8px;
+                        }
+                    }
+                    
+                }
+            }
+
+        }
+    }
 }
+
