@@ -22,6 +22,18 @@ function codeConfigOnLoad(){
 window.addEventListener('load', codeConfigOnLoad);
 
 
+// mobile sub menu start
+const subMenu = document.querySelectorAll(".main-header-menu .has-children");
+
+
+function subMenuActive(){
+    this.classList.toggle("sub_menu_active");
+};
+
+subMenu.forEach(toggle => toggle.addEventListener('click', subMenuActive));
+// mobile sub menu end
+
+
 (function($){
     $(document).ready(function(){
 
