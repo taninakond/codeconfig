@@ -111,6 +111,11 @@ add_action('wp_enqueue_scripts', 'codeconfig_scripts');
 require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/nav-walker.php';
 
+add_filter('use_block_editor_for_post', '__return_false', 10);
+
+if( function_exists('acf_add_options_page') ) {
+    acf_add_options_page();
+}
 
 function codeconfig_allow_svg_upload($mimes)
 {

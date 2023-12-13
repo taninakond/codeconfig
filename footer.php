@@ -1,87 +1,86 @@
-<?php
-/**
- * The template for displaying the footer
- *
- * Contains the closing of the #content div and all content after.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package wpwebdevs
- */
-
-?>
-
-<section class="wevdevs-footer section-padding">
-
-	<div class="main-footer-topbar">
-		<div class="main-footer-topbar-container">
-			<div class="footer-topbar-wrapper">
-				<div class="footer-topbar-content">
-					<h2>You will love our solutions</h2>
-					<p>Take a look at our highly rated 0+ premium and free plugins.</p>
+<footer>
+	<div class="footer-top">
+		<div class="footer-top-wrap" style="background-image: url(/assets/images/footer-top-bg.jpg);">
+			<div class="container d-flex space-between">
+				<div class="image-side d-flex">
+					<img src="./assets/images/footer-top-img.png" alt="">
 				</div>
-
-				<div class="footer-topbar-buttons">
-					<a class="btn" href="">PRODUCTS</a>
+				<div class="content-side">
+					<h2>Explore Our Solutions</h2>
+					<p>Dive into our top-rated plugins that make your work smoother and better! Upgrade your experience with ease and creativity.</p>
+					<a class="btn" href="#">Explore Our Product</a>
 				</div>
 			</div>
 		</div>
 	</div>
-
-	<div class="container">
-
-		<div class="main-footer">
-				<div class="main-footer-wrpper">
-
-				<div class="footer-row">
-					<div class="footer-logo">
-						<a href="index.html"><img src="<?php echo get_theme_file_uri('/assets/images/icons/wp-webdevs-whait-logo.svg') ?>" alt=""></a>
-						<p><small>Copyright 2023 © wpwebdevs – All Right Reserved</small></p>
+	<div class="footer-bottom">
+		<div class="container">
+			<div class="d-flex space-between flex-wrap">
+				<div class="left-side">
+					<a href="index.html" class="footer-logo"><img src="./assets/images/footer-logo.png" alt=""></a>
+					<h4 class="subscribe-title"><strong>Subscribe </strong>to our newslatter</h4>
+					<div class="subscribe-form">
+						<form action="" method="post" class="wpcf7-form init" aria-label="Contact form" novalidate="novalidate" data-status="init">
+							<div class="d-flex space-between align-center">
+							<div class="email">
+							<p><span data-name="your-email"><input aria-required="true" aria-invalid="false" value="" type="email" name="your-email" placeholder="Email Address"></span><br></p>
+							</div>
+							<div class="submit-btn">
+							<p><input type="submit" value="Send"></p>
+							</div>
+							</div>
+						</form>
 					</div>
-				</div>
-
-				<div class="footer-row footer-product">
-					<h5>Products</h5>
-
-					<div class="footer-product-list">
-						<a href="#"><span><img src="<?php echo get_theme_file_uri('/assets/images/icons/wpddm-single-logo.svg') ?>" alt=""></span>WPDDM</a>
-					</div>
-				</div>
-
-				<div class="footer-row">
-					<h5>Company</h5>
-					
-					<div class="footer-menu">
-						<ul>
-							<li><a href="#">About Us</a></li>
-							<li><a href="#">Contact US</a></li>
-							<li><a href="#">Career</a></li>
-							<li><a href="#">Affiliates</a></li>
-							<li><a href="#">Affiliate Policy</a></li>
-							<li><a href="#">Support</a></li>
-							<li><a href="#">Privacy Policy</a></li>
-							<li><a href="#">Refund Policy</a></li>
-
+					<div class="social-icons">
+						<ul class="unstyle d-flex">
+							<li><a class="flex-center transition" href="#"><img src="./assets/images/facebook-icon.svg" alt=""></a></li>
+							<li><a class="flex-center transition" href="#"><img src="./assets/images/brands_x-twitter-icon.svg" alt=""></a></li>
+							<li><a class="flex-center transition" href="#"><img src="./assets/images/youtube-icon.svg" alt=""></a></li>
+							<li><a class="flex-center transition" href="#"><img src="./assets/images/linkedin-icon.svg" alt=""></a></li>
 						</ul>
 					</div>
 				</div>
+				<div class="right-side d-flex space-between">
+					
+					<div class="footer-menu company">
+						<h4>Company</h4>
+						<ul>
+							<li><a href="#">About Us</a></li>
+							<li><a href="#">Testomonial</a></li>
+							<li><a href="#">Affiliates</a></li>
+							<li><a href="#">Affiliate Policy</a></li>
+							<li><a href="#">Contact Us</a></li>
+							<li><a href="#">Life at weDevs</a></li>
+							</ul>
+					</div>
 
-				<div class="footer-row footer-social-media">
-					<h5>Social Media</h5>
-					<div class="social-media">
-						<a href="#"><img src="<?php echo get_theme_file_uri('/assets/images/icons/fb-logo-icon.svg') ?>" alt=""></a>
-						<a href="#"><img src="<?php echo get_theme_file_uri('/assets/images/icons/twiiter-logo-icon.svg') ?>" alt=""></a>
-						<a href="#"><img src="<?php echo get_theme_file_uri('/assets/images/icons/youtube-logo-icon.svg') ?>" alt=""></a>
-						<a href="#"><img src="<?php echo get_theme_file_uri('/assets/images/icons/wordpress-logo-icon.svg') ?>" alt=""></a>
-						<a href="#"><img src="<?php echo get_theme_file_uri('/assets/images/icons/linkedin-logo-icon.svg') ?>" alt=""></a>
+					<div class="footer-menu resources">
+						<h4>Resources</h4>
+							<ul>
+								<li><a href="#">About Us</a></li>
+								<li><a href="#">Testomonial</a></li>
+								<li><a href="#">Affiliates</a></li>
+								<li><a href="#">Affiliate Policy</a></li>
+								<li><a href="#">Contact Us</a></li>
+								<li><a href="#">Life at weDevs</a></li>
+						</ul>
+					</div>
+					<div class="footer-menu products">
+						<h4>Products</h4>
+						<ul>
+							<li><a href="#"><span><img src="./assets/images/ddm-footer.svg" alt=""></span>Dusky Dark Mode</a></li>
+							<li><a href="#"><span><img src="./assets/images/ddm-footer.svg" alt=""></span>Dusky Dark Mode</a></li>
+							<li><a href="#"><span><img src="./assets/images/ddm-footer.svg" alt=""></span>Dusky Dark Mode</a></li>
+						</ul>
 					</div>
 				</div>
-				</div>
+			</div>
 		</div>
 	</div>
-</section>
-<!-- FOOTER END -->
-</div>
+	<div class="copyright">
+		<p>© 2023 CodeConfig . All Right Reserved.</p>
+	</div>
+</footer>
 
 <?php wp_footer(); ?>
 
