@@ -1120,8 +1120,35 @@
                     <p class="testimonial-title">CMO Of Kinsta</p>
                 </div> <!-- Testimonial Item  -->
             </div>
+
+            <button id="prevBtn">Previous</button>
+            <button id="nextBtn">Next</button>
         </div>
     </section> <!-- CodeConfig Testimonial  -->
+
+    <style>
+        .cc-testimonial-wrapper {
+            display: flex;
+            overflow: hidden;
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .testimonial-container {
+            flex: 0 0 100%;
+            box-sizing: border-box;
+        }
+
+        .testimonial-item {
+            text-align: center;
+        }
+
+        .testimonial-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 50%;
+        }
+    </style>
 
     <section class="latest-blog relative">
         <div class="cc-shape shape-medium shape-blue shape-left shape-top"></div>
