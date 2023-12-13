@@ -877,69 +877,102 @@ p {
     }
 }
 
-.dot {
-    cursor: pointer;
-    height: 15px;
-    width: 15px;
-    margin: 0 2px;
-    background-color: #bbb;
-    border-radius: 50%;
-    display: inline-block;
-    transition: background-color 0.6s ease;
-}
-
-.active,
-.dot:hover {
-    background-color: #717171;
-}
-
 .codeconfig-testimonial {
 
-    .cc-testimonial-wrapper {
-        padding-top: 30px;
+    .testimonial-container {
+        max-width: 860px;
 
-        .testimonial-item {
-            background: #fff;
-            box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.05);
-            border-radius: 20px;
-            padding: 65px 115px;
+        .cc-testimonial-wrapper {
             position: relative;
-
-            &::before {
+            padding-top: 30px;
+    
+            .testimonial-item {
+                background: #fff;
+                box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.05);
+                border-radius: 20px;
+                padding: 65px 115px;
+                position: relative;
+    
+                &::before {
+                    position: absolute;
+                    content: "";
+                    background-image: url(../images/left-quote-sign.svg);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 61px;
+                    height: 55px;
+                    top: 48px;
+                    left: 48px;
+                }
+                &::after {
+                    position: absolute;
+                    content: "";
+                    background-image: url(../images/right-quote-sign.svg);
+                    background-position: center;
+                    background-repeat: no-repeat;
+                    background-size: cover;
+                    width: 43px;
+                    height: 40px;
+                    bottom: 48px;
+                    right: 48px;
+                }
+    
+                img {
+                    max-width: 80px;
+                    border-radius: 500px;
+                }
+                .testimonial-content {
+                    margin: 20px 0 40ox;
+                }
+                .testimonial-name {
+                    margin-bottom: 15px;
+                }
+            }
+            button.slider-button {
                 position: absolute;
-                content: "";
-                background-image: url(../images/left-quote-sign.svg);
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                width: 61px;
-                height: 55px;
-                top: 48px;
-                left: 48px;
-            }
-            &::after {
-                position: absolute;
-                content: "";
-                background-image: url(../images/right-quote-sign.svg);
-                background-position: center;
-                background-repeat: no-repeat;
-                background-size: cover;
-                width: 43px;
-                height: 40px;
-                bottom: 48px;
-                right: 48px;
+                top: calc(50% - 34px);
+                z-index: 1;
+                font-size: 40px;
+                width: 68px;
+                height: 68px;
+                border-radius: 68px;
+                background: var(--White, #FFF);
+                cursor: pointer;
+                transition: all .3s ease;
+                box-shadow: 0px 8px 20px 0px rgba(71, 109, 244, 0.16);
+    
+                &:hover {
+                    box-shadow: 0px 0px 10px 6px rgba(0, 0, 0, 0.2)
+                }
+                
+                &.next {
+                    right: -30px;
+                }
+                &.prev {
+                    left: -30px;
+                }
             }
 
-            img {
-                max-width: 80px;
-                border-radius: 500px;
+            .dots {
+                text-align: center;
+                padding-top: 15px;
             }
-            .testimonial-content {
-                margin: 20px 0 40ox;
+            .dot {
+                cursor: pointer;
+                height: 12px;
+                width: 12px;
+                margin: 0 2px;
+                background-color: #bbb;
+                border-radius: 50%;
+                display: inline-block;
+                transition: background-color 0.6s ease;
+
+                &.active, &:hover {
+                    background-color: $primary;
+                }
             }
-            .testimonial-name {
-                margin-bottom: 15px;
-            }
+            
         }
     }
 }
@@ -1916,6 +1949,27 @@ footer {
     .latest-blog {
         padding-bottom: 0;
     }
+    
+    .codeconfig-testimonial {
+
+        .testimonial-container {
+            padding: 0 30px;
+
+            button.slider-button {
+                top: calc(50% - 20px) !important;
+                font-size: 20px !important;
+                width: 40px !important;
+                height: 40px !important;
+                
+                &.next {
+                    right: -20px !important;
+                }
+                &.prev {
+                    left: -20px !important;
+                }
+            }
+        }
+    }
 
     footer {
         .footer-bottom {
@@ -2179,23 +2233,34 @@ footer {
 
     .codeconfig-testimonial {
 
-        .cc-testimonial-wrapper {
-            padding-top: 30px;
-    
-            .testimonial-item {
-                padding: 40px 30px;
-    
-                &::before {
-                    width: 41px;
-                    height: 36px;
-                    top: 15px;
-                    left: 15px;
+        .testimonial-container {
+            padding: 0 25px;
+
+            .cc-testimonial-wrapper {
+                padding-top: 30px;
+        
+                .testimonial-item {
+                    padding: 40px 30px;
+        
+                    &::before {
+                        width: 41px;
+                        height: 36px;
+                        top: 15px;
+                        left: 15px;
+                    }
+                    &::after {
+                        width: 23px;
+                        height: 20px;
+                        bottom: 15px;
+                        right: 15px;
+                    }
                 }
-                &::after {
-                    width: 23px;
-                    height: 20px;
-                    bottom: 15px;
-                    right: 15px;
+                    
+                button.slider-button {
+                    display: none;
+                }
+                .dots {
+                    display: block
                 }
             }
         }
