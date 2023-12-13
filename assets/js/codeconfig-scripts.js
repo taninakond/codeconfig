@@ -26,10 +26,20 @@ const testimonialWrapper = document.querySelector('.cc-testimonial-wrapper');
 const testimonialContainer = document.querySelector('.testimonial-container');
 const testimonialItems = document.querySelectorAll('.testimonial-item');
 
-function showTestimonial(index) {
-  const newPosition = -index * 100 + '%';
-  testimonialWrapper.style.transform = 'translateX(' + newPosition + ')';
-}
+// mobile sub menu start
+const subMenu = document.querySelectorAll(".main-header-menu .has-children");
+
+
+function subMenuActive(){
+    this.classList.toggle("sub_menu_active");
+};
+
+subMenu.forEach(toggle => toggle.addEventListener('click', subMenuActive));
+// mobile sub menu end
+
+
+(function($){
+    $(document).ready(function(){
 
 function nextTestimonial() {
   currentIndex = (currentIndex + 1) % testimonialItems.length;
