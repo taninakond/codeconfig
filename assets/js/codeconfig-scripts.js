@@ -38,56 +38,71 @@ subMenu.forEach(toggle => toggle.addEventListener('click', subMenuActive));
 // mobile sub menu end
 
 
-(function($){
-    $(document).ready(function(){
-
-function nextTestimonial() {
-  currentIndex = (currentIndex + 1) % testimonialItems.length;
-  showTestimonial(currentIndex);
-}
-
-function prevTestimonial() {
-  currentIndex = (currentIndex - 1 + testimonialItems.length) % testimonialItems.length;
-  showTestimonial(currentIndex);
-}
-
-// Add event listeners for next and previous buttons
 document.addEventListener('DOMContentLoaded', function () {
-  document.getElementById('prevBtn').addEventListener('click', prevTestimonial);
-  document.getElementById('nextBtn').addEventListener('click', nextTestimonial);
+    let slideIndex = 1;
+    let dots;
+
+    // Event listeners for button clicks
+    document.querySelector('.prev').addEventListener('click', function () {
+        changeSlide(-1);
+    });
+
+    document.querySelector('.next').addEventListener('click', function () {
+        changeSlide(1);
+    });
+
+    // Event listeners for dot clicks
+    dots = document.querySelectorAll('.dot');
+    dots.forEach((dot, index) => {
+        dot.addEventListener('click', function () {
+            currentSlide(index + 1);
+        });
+    });
+
+    // Autoplay functionality
+    let autoplayInterval;
+    function startAutoplay() {
+        autoplayInterval = setInterval(function () {
+            changeSlide(1);
+        }, 3000); // Change slide every 3000 milliseconds (3 seconds)
+    }
+
+    function stopAutoplay() {
+        clearInterval(autoplayInterval);
+    }
+
+    // Event listeners for mouseover and mouseout to control autoplay
+    document.querySelector('.cc-testimonial-wrapper').addEventListener('mouseover', stopAutoplay);
+    document.querySelector('.cc-testimonial-wrapper').addEventListener('mouseout', startAutoplay);
+
+    showSlides(slideIndex);
+
+    function changeSlide(n) {
+        showSlides(slideIndex += n);
+    }
+
+    function currentSlide(n) {
+        showSlides(slideIndex = n);
+    }
+
+    function showSlides(n) {
+        const slides = document.querySelectorAll(".testimonial-item");
+
+        dots.forEach((dot, index) => {
+            const isActive = index === slideIndex - 1;
+            dot.classList.toggle("active", isActive);
+        });
+
+        // Handle circular navigation
+        slideIndex = (n > slides.length) ? 1 : (n < 1) ? slides.length : n;
+
+        slides.forEach((slide, index) => {
+            slide.style.display = (index === slideIndex - 1) ? "block" : "none";
+        });
+    }
+
+    // Start autoplay initially
+    startAutoplay();
 });
 
-
-// (function($){
-//     $(document).ready(function(){
-
-//         // Counter js start
-//         $(document).ready(function() {
-
-//             var counters = $(".cc_counter");
-//             var countersQuantity = counters.length;
-//             var counter = [];
-          
-//             for (i = 0; i < countersQuantity; i++) {
-//               counter[i] = parseInt(counters[i].innerHTML);
-//             }
-          
-//             var cc_counter = function(start, value, id) {
-//               var localStart = start;
-//               setInterval(function() {
-//                 if (localStart < value) {
-//                   localStart++;
-//                   counters[id].innerHTML = localStart;
-//                 }
-//               }, 1);
-//             }
-          
-//             for (j = 0; j < countersQuantity; j++) {
-//                 cc_counter(0, counter[j], j);
-//             }
-//           });
-//         //   Counter js end 
-
-//     });
-// })(jQuery);
 
