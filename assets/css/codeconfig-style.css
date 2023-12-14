@@ -32,7 +32,7 @@ body {
 */
 img, svg {
   width: 100%;
-  min-height: auto;
+  height: auto;
 }
 
 .section {
@@ -280,7 +280,7 @@ img, svg {
   top: 0;
   width: 930px;
   height: 280px;
-  background-image: url(/assets/images/heading-bg.svg);
+  background-image: url(../images/heading-bg.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -293,7 +293,7 @@ img, svg {
   top: -70px;
   width: 1425px;
   height: 280px;
-  background-image: url(/assets/images/heading-bg-2.svg);
+  background-image: url(../images/heading-bg-2.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -607,13 +607,13 @@ p {
   height: 100%;
 }
 .hero .hero-wrapper .content-area h1 .top-notch::after, .hero .hero-wrapper .content-area p .top-notch::after, .hero .hero-wrapper .content-area a .top-notch::after {
-  background-image: url(/assets/images/top-notch-bg.svg);
+  background-image: url(../images/top-notch-bg.svg);
 }
 .hero .hero-wrapper .content-area h1 .solution::after, .hero .hero-wrapper .content-area p .solution::after, .hero .hero-wrapper .content-area a .solution::after {
-  background-image: url(/assets/images/solution-bg.svg);
+  background-image: url(../images/solution-bg.svg);
 }
 .hero .hero-wrapper .content-area h1 .wordpress::after, .hero .hero-wrapper .content-area p .wordpress::after, .hero .hero-wrapper .content-area a .wordpress::after {
-  background-image: url(/assets/images/wordpress-bg.svg);
+  background-image: url(../images/wordpress-bg.svg);
 }
 .hero .hero-wrapper .content-area p {
   font-size: 20px;
@@ -745,7 +745,7 @@ p {
 }
 .codeconfig-products .logo-bg::after {
   position: absolute;
-  content: url(/assets/images/logo-shape.svg);
+  content: url(../images/logo-shape.svg);
   top: -30px;
   left: -100px;
   z-index: -1;
@@ -1033,7 +1033,7 @@ p {
 }
 .subscribe-form .submit-btn:after {
   position: absolute;
-  content: url(/assets/images/send-Icon.svg);
+  content: url(../images/send-Icon.svg);
   top: 10px;
   right: 16px;
   z-index: -1;

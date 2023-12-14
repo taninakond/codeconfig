@@ -30,7 +30,8 @@ function codeconfig_setup()
     register_nav_menus(
         array(
             'header-menu' => __('Header Menu', 'codeconfig'),
-            'footer-menu' => __('Footer Menu', 'codeconfig')
+            'resources-menu' => __('Resources Menu', 'codeconfig'),
+            'company-menu' => __('Company Menu', 'codeconfig'),
         )
     );
 
@@ -219,3 +220,43 @@ function codeconfig_loadmore_posts_function()
 
     die();
 }
+
+
+
+function codeconfig_widgets(){
+    register_sidebar( 
+        array(
+            "name"       =>__("Footer Top", "codeconfig"),
+            "id"         => "footertop",
+            "description"=> __("Footer Top", "codeconfig"),
+            "before_widget"=> '<div id="%1$s" class="widget %2$s">',
+            "after_widget" => "</div>",
+            "before_title" => "",
+            "after_title"  => "",
+        )
+     );
+
+     register_sidebar( 
+        array(
+            "name"       =>__("Social Media", "codeconfig"),
+            "id"         => "socialmedia",
+            "description"=> __("Social Media", "codeconfig"),
+            "before_widget"=> '<div id="%1$s" class="widget %2$s">',
+            "after_widget" => "</div>",
+            "before_title" => "",
+            "after_title"  => "",
+        )
+     );
+     register_sidebar( 
+        array(
+            "name"       =>__("Copy Right", "codeconfig"),
+            "id"         => "copyright",
+            "description"=> __("Copy Right", "codeconfig"),
+            "before_widget"=> '<small id="%1$s" class="widget %2$s">',
+            "after_widget" => "</small>",
+            "before_title" => "",
+            "after_title"  => "",
+        )
+     );
+}
+add_action( "widgets_init","codeconfig_widgets" );

@@ -11,6 +11,9 @@ get_header() ;?>
                 <div class="heading-bg"></div>
                 
                 <div class="content-area relative">
+                    <div class="cc-shape shape-blue shape-small shape-middle shape-top-0"></div>
+                    <div class="cc-shape shape-red shape-small shape-left shape-top-0"></div>
+
                     <?php $banner = get_field('banner'); if($banner) { echo $banner['content']; }?>
                 </div>
 
@@ -899,8 +902,7 @@ get_header() ;?>
         <div class="container">
             <div class="section-title text-center">
                 <div class="logo-bg relative"></div>
-                <h2>Explore <span>Our Solutions</span></h2>
-                <p>Elevate your WordPress journey! Our cutting-edge solutions boost performance functionality, and make it all smoother, faster, and simpler.</p>
+                <?php $product_section_title = get_field('product_section_title'); if($product_section_title) {echo $product_section_title['product_section_content']; } ?>
             </div>
 
             <div class="iconbox-wrapper d-flex flex-wrap">
@@ -908,10 +910,10 @@ get_header() ;?>
 
                 <?php $products = get_field('products') ; foreach($products as $product) :?>
                 <div class="iconbox text-center">
-                    <a href="<?php echo $product['link']['url']; ?>"><img src="<?php echo $product['add_product_image']['url']; ?>" alt=""></a>
+                    <a href="<?php echo $product['link']['url']; ?>"><img src="<?php echo $product['add_product_image']['url']; ?>" alt="<?php echo $product['add_product_image']['alt']; ?>"></a>
                     <a href="<?php echo $product['link']['url']; ?>"><h4><?php echo $product['link']['title']; ?></h4></a>
-                    <p>Elevate your WordPress journey! Our cutting-edge solutions boost performance, streamline</p>
-                    <a class="post-btn" href="<?php echo $product['link']['url']; ?>">Explore <img src="<?php echo get_theme_file_uri( '/assets/images/right-arrow.svg' ) ;?>" alt=""> </a>
+                    <p><?php echo $product['description']; ?></p>
+                    <a class="post-btn" href="<?php echo $product['link']['url']; ?>"><?php echo __('Explore','codeconfig'); ?> <img src="<?php echo get_theme_file_uri( '/assets/images/right-arrow.svg' ) ;?>" alt=""> </a>
                 </div> <!-- Product Item  -->
                 <?php endforeach ;?>
             </div>
@@ -923,41 +925,17 @@ get_header() ;?>
         <div class="cc-shape shape-red shape-medium shape-right shape-top"></div>
         <div class="container">
             <div class="section-title text-center">
-                <h2>Why are CodeConfig's <span>Products Excellent?</span></h2>
-                <p>We aid businesses worldwide with outstanding products that tackle their business and web issues.  CodeConfig stands out precisely because of this commitment!</p>
+                <?php $excellent_product = get_field('excellent_product'); if($excellent_product) {echo $excellent_product['excellent_product_content']; } ?>
             </div>
 
             <div class="iconbox-wrapper d-flex flex-wrap">
 
-                <a href="#" class="iconbox text-center" style="color:#F7F8FD">
-                    <img src="/assets/images/Excellent-Product-1.png" alt="">
-                    <p>Stellar Support Empowerment Guides</p>
+                <?php $excellent_products = get_field('products_excellent'); foreach($excellent_products as $excellent_product) : ?>
+                <a href="<?php echo $excellent_product['excellent_product_link']['url']; ?>" class="iconbox text-center" style="color:<?php echo $excellent_product['excellent_product_bg_color'] ?>">
+                    <img src="<?php echo $excellent_product['add_excellent_product_image']['url']; ?>" alt="<?php echo $excellent_product['add_excellent_product_image']['alt']; ?>">
+                    <p><?php echo $excellent_product['add_excellent_product_description']; ?></p>
                 </a> <!-- Product Item  -->
-
-                <a href="#" class="iconbox text-center" style="color:#EEF1F9">
-                    <img src="/assets/images/Excellent-Product-2.png" alt="">
-                    <p>Stellar Support Empowerment Guides</p>
-                </a> <!-- Product Item  -->
-
-                <a href="#"class="iconbox text-center" style="color:#F2E5FF">
-                    <img src="/assets/images/Excellent-Product-3.png" alt="">
-                    <p>Seamlessly Perfected Highly Optimized Code</p>
-                </a> <!-- Product Item  -->
-
-                <a href="#" class="iconbox text-center" style="color:#F2E5FF">
-                    <img src="/assets/images/Excellent-Product-4.png" alt="">
-                    <p>Creative Feature-Packed Plugins</p>
-                </a> <!-- Product Item  -->
-
-                <a href="#" class="iconbox text-center" style="color:#F7F8FD">
-                    <img src="/assets/images/Excellent-Product-5.png" alt="">
-                    <p>Frequent Updates & Bug Fixes</p>
-                </a> <!-- Product Item  -->
-
-                <a href="#" class="iconbox text-center" style="color:#EEF1F9">
-                    <img src="/assets/images/Excellent-Product-6.png" alt="">
-                    <p>Magical Solutions at Your Service</p>
-                </a> <!-- Product Item  -->
+                <?php endforeach; ?>
             </div>
         </div>
     </section> <!-- CodeConfig Excellent Products  -->
@@ -965,33 +943,16 @@ get_header() ;?>
     <section class="section codeconfig-counter">
         <div class="container">
             <div class="section-title text-center">
-                <h2>Explore <span>Our Solutions</span></h2>
-                <p>Elevate your WordPress journey! Our cutting-edge solutions boost performance, streamline functionality, and make it all smoother, faster, and simpler.</p>
+                <?php $counter_section_title = get_field('counter_section_title'); if($counter_section_title){echo $counter_section_title['counter_section_content']; } ?>
             </div>
             <div class="counter-wrapper">
+                <?php $counter_list = get_field('counter_list'); foreach($counter_list as $counter): ?>
                 <div class="counter-box text-center">
-                    <div class="counter-icon flex-center"><img src="./assets/images/counter-icon-1.svg" alt=""></div>
-                    <h2><span class="cc_counter">350</span>+</h2>
-                    <p>Amazing Products</p>
+                    <div class="counter-icon flex-center"><img src="<?php echo $counter['add_counter_image']['url']; ?>" alt="<?php echo $counter['add_counter_image']['alt']; ?>"></div>
+                    <h2><span class="cc_counter"><?php echo $counter['counter_quantity']; ?></span><?php echo $counter['quantity_mark']; ?></h2>
+                    <p><?php echo $counter['counter_title']; ?></p>
                 </div> <!-- Counter Item  -->
-
-                <div class="counter-box text-center">
-                   <div class="counter-icon flex-center"><img src="./assets/images/counter-icon-2.svg" alt=""></div>
-                    <h2><span class="cc_counter">35</span>+</h2>
-                    <p>Free Dounloads</p>
-                </div> <!-- Counter Item  -->
-
-                <div class="counter-box text-center">
-                  <div class="counter-icon flex-center"><img src="./assets/images/counter-icon-3.svg" alt=""></div>
-                    <h2><span class="cc_counter">35</span>+</h2>
-                    <p>Happy Customers</p>
-                </div> <!-- Counter Item  -->
-
-                <div class="counter-box text-center">
-                   <div class="counter-icon flex-center"><img src="./assets/images/counter-icon-4.svg" alt=""></div>
-                    <h2><span class="cc_counter">35</span>+</h2>
-                    <p>Countries Worldwide</p>
-                </div> <!-- Counter Item  -->
+                <?php endforeach ; ?>
             </div>
         </div>
     </section> <!-- CodeConfig Counter  -->
@@ -1002,46 +963,20 @@ get_header() ;?>
         <div class="cc-shape shape-small shape-blue shape-right shape-top-0"></div>
         <div class="container testimonial-container">
             <div class="section-title text-center">
-                <h2>What <span>Say Our User</span></h2>
-                <p>Elevate your WordPress journey! Our cutting-edge solutions boost performance, streamline functionality, and make it all smoother, faster, and simpler.</p>
+                <?php $testimonial_section_title = get_field('testimonial_section_title'); if($testimonial_section_title){echo $testimonial_section_title['testimonial_section_content']; } ?>
             </div>
 
             <div class="cc-testimonial-wrapper">
                 <button class="slider-button prev">❮</button>
+
+                <?php $testimonial_list = get_field('testimonial_list'); foreach($testimonial_list as $testimonial): ?>
                 <div class="testimonial-item text-center active fade">
-                    <img src="./assets/images/Brian_Jackson.png" alt="">
-                    <p class="testimonial-content">Their product is truly awe-inspiring, significantly easing my WordPress journey. I can't help but emphasize again and again how much their solution has positively impacted my experience.</p>
-                    <h4 class="testimonial-name">Brian Jackson</h4>
-                    <p class="testimonial-title">CMO Of Kinsta</p>
+                    <img src="<?php echo $testimonial['add_clients_photo']['url']; ?>" alt="<?php echo $testimonial['add_clients_photo']['alt']; ?>">
+                    <p class="testimonial-content"><?php echo $testimonial['client_quote']; ?></p>
+                    <h4 class="testimonial-name"><?php echo $testimonial['client_name']; ?></h4>
+                    <p class="testimonial-title"><?php echo $testimonial['client_title']; ?></p>
                 </div> <!-- Testimonial Item  -->
-
-                <div class="testimonial-item text-center fade">
-                    <img src="./assets/images/Brian_Jackson.png" alt="">
-                    <p class="testimonial-content">Their product is truly awe-inspiring, significantly easing my WordPress journey. I can't help but emphasize again and again how much their solution has positively impacted my experience.</p>
-                    <h4 class="testimonial-name">Brian Jackson 2</h4>
-                    <p class="testimonial-title">CMO Of Kinsta</p>
-                </div> <!-- Testimonial Item  -->
-
-                <div class="testimonial-item text-center fade">
-                    <img src="./assets/images/Brian_Jackson.png" alt="">
-                    <p class="testimonial-content">Their product is truly awe-inspiring, significantly easing my WordPress journey. I can't help but emphasize again and again how much their solution has positively impacted my experience.</p>
-                    <h4 class="testimonial-name">Brian Jackson 3</h4>
-                    <p class="testimonial-title">CMO Of Kinsta</p>
-                </div> <!-- Testimonial Item  -->
-
-                <div class="testimonial-item text-center fade">
-                    <img src="./assets/images/Brian_Jackson.png" alt="">
-                    <p class="testimonial-content">Their product is truly awe-inspiring, significantly easing my WordPress journey. I can't help but emphasize again and again how much their solution has positively impacted my experience.</p>
-                    <h4 class="testimonial-name">Brian Jackson 4</h4>
-                    <p class="testimonial-title">CMO Of Kinsta</p>
-                </div> <!-- Testimonial Item  -->
-
-                <div class="testimonial-item text-center fade">
-                    <img src="./assets/images/Brian_Jackson.png" alt="">
-                    <p class="testimonial-content">Their product is truly awe-inspiring, significantly easing my WordPress journey. I can't help but emphasize again and again how much their solution has positively impacted my experience.</p>
-                    <h4 class="testimonial-name">Brian Jackson 5</h4>
-                    <p class="testimonial-title">CMO Of Kinsta</p>
-                </div> <!-- Testimonial Item  -->
+                <?php endforeach ; ?>
 
                 <div class="dots">
                     <span class="dot" data-index="1"></span>
@@ -1050,6 +985,7 @@ get_header() ;?>
                     <span class="dot" data-index="4"></span>
                     <span class="dot" data-index="5"></span>
                 </div>
+
                 <button class="slider-button next">❯</button>
             </div>
 
@@ -1063,99 +999,41 @@ get_header() ;?>
         <div class="cc-shape shape-small shape-blue shape-middle shape-bottom"></div>
         <div class="container">
             <div class="section-title text-center">
-                <h2>Latest <span>Blog</span></h2>
-                <p>Elevate your WordPress journey! Our cutting-edge solutions boost performance, streamline functionality, and make it all smoother, faster, and simpler.</p>
+               <?php $latest_blog_section_title = get_field('latest_blog_section_title'); if($latest_blog_section_title){echo $latest_blog_section_title['latest_blog_section_content']; } ?>
             </div>
             <div class="cc-blog d-flex flex-wrap">
+
+                <?php
+                    global $paged, $wp_query, $wp;
+                    $args = wp_parse_args($wp->matched_query);
+                    if ( !empty ( $args['paged'] ) && 0 == $paged ) {
+                    $wp_query->set('paged', $args['paged']);
+                    $paged = $args['paged'];
+                    }
+                    $temp = $wp_query;
+                    $wp_query= null;
+                    $wp_query = new WP_Query();
+                    $wp_query->query('paged='.$paged.'&showposts=10&cat='.get_option('prototype_blog_cat'));
+                ?>
+
+                <?php while($wp_query->have_posts()): $wp_query->the_post(); ?>
                 <div class="blog-item text-center">
                    <div class="post-thumbnail">
-                        <a href="/Blog_details.html"><img src="./assets/images/Blog.jpg" alt=""></a>
+                        <a href="<?php the_permalink(); ?>">
+                            <?php if(has_post_thumbnail()) {the_post_thumbnail(); } ?>
+                        </a>
                    </div>
                     <div class="post-details">
                         <ul class="post-meta unstyle d-flex space-between">
-                            <li><img src="./assets/images/date-icon.svg" alt=""><span>03 December, 2023</span></li>
-                            <li><img src="./assets/images/comment-icon.svg" alt=""><span>Coments</span></li>
+                            <li><img src="<?php echo get_theme_file_uri('/assets/images/date-icon.svg'); ?>" alt=""><span><?php the_date(  ); ?></span></li>
+                            <li><img src="<?php echo get_theme_file_uri('/assets/images/comment-icon.svg'); ?>" alt=""><span><?php comments_number(  ); ?></span></li>
                         </ul>
-                        <a href="/Blog_details.html"><h3 class="post-title">Best WordPress Black Friday / Cyber Monday... ...</h3></a>
-                        <p class="post-excerpt">Elevate your WordPress journey! Our cutting-edge solutions boost performance, streamline</p>
-                        <a class="post-btn" href="/Blog_details.html">Read more<img src="./assets/images/right-arrow.svg" alt=""> </a>
+                        <a href="<?php the_permalink(  ); ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
+                        <div class="post-excerpt"><?php the_excerpt(); ?></div>
+                        <a class="post-btn" href="<?php the_permalink(  ); ?>"><?php echo __('Read more', 'codeconfig'); ?><img src="<?php echo get_theme_file_uri('/assets/images/right-arrow.svg'); ?>" alt=""> </a>
                     </div>
                 </div> <!-- Blog Item  -->
-
-                <div class="blog-item text-center">
-                    <div class="post-thumbnail">
-                         <a href="#"><img src="./assets/images/Blog.jpg" alt=""></a>
-                    </div>
-                     <div class="post-details">
-                         <ul class="post-meta unstyle d-flex space-between">
-                             <li><img src="./assets/images/date-icon.svg" alt=""><span>03 December, 2023</span></li>
-                             <li><img src="./assets/images/comment-icon.svg" alt=""><span>Coments</span></li>
-                         </ul>
-                         <a href="#"><h3 class="post-title">Best WordPress Black Friday / Cyber Monday... ...</h3></a>
-                         <p class="post-excerpt">Elevate your WordPress journey! Our cutting-edge solutions boost performance, streamline</p>
-                         <a class="post-btn" href="#">Read more<img src="./assets/images/right-arrow.svg" alt=""> </a>
-                     </div>
-                 </div> <!-- Blog Item  -->
-
-                 <div class="blog-item text-center">
-                    <div class="post-thumbnail">
-                         <a href="#"><img src="./assets/images/Blog.jpg" alt=""></a>
-                    </div>
-                     <div class="post-details">
-                         <ul class="post-meta unstyle d-flex space-between">
-                             <li><img src="./assets/images/date-icon.svg" alt=""><span>03 December, 2023</span></li>
-                             <li><img src="./assets/images/comment-icon.svg" alt=""><span>Coments</span></li>
-                         </ul>
-                         <a href="#"><h3 class="post-title">Best WordPress Black Friday / Cyber Monday... ...</h3></a>
-                         <p class="post-excerpt">Elevate your WordPress journey! Our cutting-edge solutions boost performance, streamline</p>
-                         <a class="post-btn" href="#">Read more<img src="./assets/images/right-arrow.svg" alt=""> </a>
-                     </div>
-                 </div> <!-- Blog Item  -->
-
-                 <div class="blog-item text-center">
-                    <div class="post-thumbnail">
-                         <a href="#"><img src="./assets/images/Blog.jpg" alt=""></a>
-                    </div>
-                     <div class="post-details">
-                         <ul class="post-meta unstyle d-flex space-between">
-                             <li><img src="./assets/images/date-icon.svg" alt=""><span>03 December, 2023</span></li>
-                             <li><img src="./assets/images/comment-icon.svg" alt=""><span>Coments</span></li>
-                         </ul>
-                         <a href="#"><h3 class="post-title">Best WordPress Black Friday / Cyber Monday... ...</h3></a>
-                         <p class="post-excerpt">Elevate your WordPress journey! Our cutting-edge solutions boost performance, streamline</p>
-                         <a class="post-btn" href="#">Read more<img src="./assets/images/right-arrow.svg" alt=""> </a>
-                     </div>
-                 </div> <!-- Blog Item  -->
-
-                 <div class="blog-item text-center">
-                    <div class="post-thumbnail">
-                         <a href="#"><img src="./assets/images/Blog.jpg" alt=""></a>
-                    </div>
-                     <div class="post-details">
-                         <ul class="post-meta unstyle d-flex space-between">
-                             <li><img src="./assets/images/date-icon.svg" alt=""><span>03 December, 2023</span></li>
-                             <li><img src="./assets/images/comment-icon.svg" alt=""><span>Coments</span></li>
-                         </ul>
-                         <a href="#"><h3 class="post-title">Best WordPress Black Friday / Cyber Monday... ...</h3></a>
-                         <p class="post-excerpt">Elevate your WordPress journey! Our cutting-edge solutions boost performance, streamline</p>
-                         <a class="post-btn" href="#">Read more<img src="./assets/images/right-arrow.svg" alt=""> </a>
-                     </div>
-                 </div> <!-- Blog Item  -->
-
-                 <div class="blog-item text-center">
-                    <div class="post-thumbnail">
-                         <a href="#"><img src="./assets/images/Blog.jpg" alt=""></a>
-                    </div>
-                     <div class="post-details">
-                         <ul class="post-meta unstyle d-flex space-between">
-                             <li><img src="./assets/images/date-icon.svg" alt=""><span>03 December, 2023</span></li>
-                             <li><img src="./assets/images/comment-icon.svg" alt=""><span>Coments</span></li>
-                         </ul>
-                         <a href="#"><h3 class="post-title">Best WordPress Black Friday / Cyber Monday... ...</h3></a>
-                         <p class="post-excerpt">Elevate your WordPress journey! Our cutting-edge solutions boost performance, streamline</p>
-                         <a class="post-btn" href="#">Read more<img src="./assets/images/right-arrow.svg" alt=""> </a>
-                     </div>
-                 </div> <!-- Blog Item  -->
+                <?php endwhile; ?>
 
             </div> <!-- CC Blog  -->
         </div>

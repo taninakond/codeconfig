@@ -39,7 +39,7 @@ body {
 
 img, svg {
     width: 100%;
-    min-height: auto;
+    height: auto;
 }
 .section {
     padding: 80px 0;
@@ -240,7 +240,7 @@ img, svg {
     top: 0;
     width: 930px;
     height: 280px;
-    background-image: url(/assets/images/heading-bg.svg);
+    background-image: url(../images/heading-bg.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -252,7 +252,7 @@ img, svg {
     top: -70px;
     width: 1425px;
     height: 280px;
-    background-image: url(/assets/images/heading-bg-2.svg);
+    background-image: url(../images/heading-bg-2.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
