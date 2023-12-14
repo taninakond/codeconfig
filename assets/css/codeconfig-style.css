@@ -1051,6 +1051,9 @@ p {
   cursor: pointer;
   background: transparent;
 }
+.subscribe-form .submit-btn span.wpcf7-spinner {
+  display: none;
+}
 
 footer .footer-top {
   width: 100%;
