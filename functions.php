@@ -238,17 +238,6 @@ function codeconfig_widgets(){
 
      register_sidebar( 
         array(
-            "name"       =>__("Social Media", "codeconfig"),
-            "id"         => "socialmedia",
-            "description"=> __("Social Media", "codeconfig"),
-            "before_widget"=> '<div id="%1$s" class="widget %2$s">',
-            "after_widget" => "</div>",
-            "before_title" => "",
-            "after_title"  => "",
-        )
-     );
-     register_sidebar( 
-        array(
             "name"       =>__("Copy Right", "codeconfig"),
             "id"         => "copyright",
             "description"=> __("Copy Right", "codeconfig"),
