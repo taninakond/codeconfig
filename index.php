@@ -68,7 +68,7 @@ get_header() ;?>
                 <div class="search-container">
                     <form action="/action_page.php">
                         <input type="text" placeholder="Search anything...." name="search">
-                        <button type="submit"><img src="/assets/images/search-icon.svg" alt=""></i></button>
+                        <button type="submit"><img src="<?php echo get_theme_file_uri('/assets/images/search-icon.svg') ?>" alt=""></i></button>
                     </form>
                     </div>
             </div>
@@ -85,8 +85,8 @@ get_header() ;?>
                 </div>
                 <div class="post-details">
                     <ul class="post-meta unstyle flex-center">
-                        <li><img src="<?php echo get_theme_file_uri('/assets/images/date-icon.svg'); ?>" alt=""><span><?php the_date(  ); ?></span></li>
-                        <li><img src="<?php echo get_theme_file_uri('/assets/images/time-icon.svg'); ?>" alt=""><span><?php the_time( ); ?></span></li>
+                        <li><img src="<?php echo get_theme_file_uri('/assets/images/date-icon.svg'); ?>" alt=""><span><?php echo get_the_date(); ?></span></li>
+                        <li><img src="<?php echo get_theme_file_uri('/assets/images/time-icon.svg'); ?>" alt=""><span><?php echo get_the_time(); ?></span></li>
                         <li><img src="<?php echo get_theme_file_uri('/assets/images/comment-icon.svg'); ?>" alt=""><span><?php comments_number(  ); ?></span></li>
                     </ul>
                     <a href="<?php the_permalink(); ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
