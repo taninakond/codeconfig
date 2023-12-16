@@ -71,34 +71,44 @@ get_header();
             <h2>Related <span>Post</span></h2>
         </div>
         <div class="cc-blog d-flex flex-wrap">
+
+            <?php
+            $orig_post = $post;
+            global $post;
+            $tags = wp_get_post_tags($post->ID);
+            if ($tags) {
+            $tag_ids = array();
+            foreach($tags as $individual_tag) $tag_ids[] = $individual_tag->term_id;
+            $args=array(
+            'tag__in' => $tag_ids,
+            'post__not_in' => array($post->ID),
+            'posts_per_page'=>3, // Number of related posts to display.
+            'caller_get_posts'=>1
+            );
+            $my_query = new wp_query( $args );
+            while( $my_query->have_posts() ) {
+            $my_query->the_post();
+            ?>
+
             <div class="blog-item text-center">
                 <div class="post-thumbnail">
-                    <a href="/Blog_details.html"><img src="<?php echo get_theme_file_uri('/assets/images/Blog.jpg') ?>" alt=""></a>
+                    <a href="<?php the_permalink(); ?>">
+                   <?php if(has_post_thumbnail( )){the_post_thumbnail(  );} ?>
+                    </a>
                 </div>
                 <div class="post-details">
-                    <p class="post-excerpt">Elevate your WordPress journey! Our cutting-edge solutions boost</p>
+                   <a href="<?php the_permalink(  ); ?>"> <p class="post-excerpt">Elevate your WordPress journey! Our cutting-edge solutions boost</p></a>
                 </div>
             </div> <!-- Blog Item  -->
 
-            <div class="blog-item text-center">
-                <div class="post-thumbnail">
-                        <a href="#"><img src="<?php echo get_theme_file_uri('/assets/images/Blog.jpg') ?>" alt=""></a>
-                </div>
-                    <div class="post-details">
-                        <p class="post-excerpt">Elevate your WordPress journey! Our cutting-edge solutions boost</p>
-                    </div>
-                </div> <!-- Blog Item  -->
-
-                <div class="blog-item text-center">
-                <div class="post-thumbnail">
-                        <a href="#"><img src="<?php echo get_theme_file_uri('/assets/images/Blog.jpg') ?>" alt=""></a>
-                </div>
-                    <div class="post-details">
-                        <p class="post-excerpt">Elevate your WordPress journey! Our cutting-edge solutions boost</p>
-                    </div>
-                </div> <!-- Blog Item  -->
+            <?php }
+            }
+            $post = $orig_post;
+            wp_reset_query();
+            ?>
 
         </div> <!-- CC Blog  -->
+
     </div>
 </section> <!--Related Blog  -->
 
@@ -111,7 +121,7 @@ get_header();
 
 	<div class="container single-blog-container">
 		<div class="section-title text-center">
-			<h2><?php echo __('Total', 'codeconfig') ?> <span><?php echo __('Comments', 'codeconfig'); echo get_comments_number(); ?></span></h2>
+			<h2><?php echo __('Total ', 'codeconfig') ?> <span><?php echo __('Comments', 'codeconfig'); echo get_comments_number(); ?></span></h2>
 		</div>
 
 		<?php

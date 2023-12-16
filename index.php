@@ -120,17 +120,17 @@ get_header() ;?>
         <div class="iconbox-wrapper d-flex flex-wrap">
             
             <a href="#" class="iconbox text-center" style="color:#F2E5FF">
-                <img src="/assets/images/Excellent-Product-4.png" alt="">
+                <img src="<?php echo get_theme_file_uri('/assets/images/Excellent-Product-4.png') ?>" alt="">
                 <p>Creative Feature-Packed Plugins</p>
             </a> <!-- Product Item  -->
 
             <a href="#" class="iconbox text-center" style="color:#F7F8FD">
-                <img src="/assets/images/Excellent-Product-1.png" alt="">
+                <img src="<?php echo get_theme_file_uri('/assets/images/Excellent-Product-1.png') ?>" alt="">
                 <p>Stellar Support Empowerment Guides</p>
             </a> <!-- Product Item  -->
             
             <a href="#" class="iconbox text-center" style="color:#F2E5FF">
-                <img src="/assets/images/Excellent-Product-3.png" alt="">
+                <img src="<?php echo get_theme_file_uri('/assets/images/Excellent-Product-3.png') ?>" alt="">
                 <p>Seamlessly Perfected Highly Optimized Code</p>
             </a> <!-- Product Item  -->
 
