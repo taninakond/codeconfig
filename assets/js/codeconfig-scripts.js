@@ -106,3 +106,29 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 
 
+// Filterable post tab Start
+    function showTab(tabId, button) {
+
+        var tabContents = document.querySelectorAll('.post-tab-body');
+        tabContents.forEach(function (tabContent) {
+            tabContent.classList.remove('active-tab');
+        });
+
+        var selectedTab = document.getElementById(tabId);
+        if (selectedTab) {
+            selectedTab.classList.add('active-tab');
+        }
+
+        var tabButtons = document.querySelectorAll('.tabs .tab-btn');
+        tabButtons.forEach(function (tabButton) {
+            tabButton.classList.remove('active');
+        });
+
+        if (button) {
+            button.classList.add('active');
+        }
+    }
+
+// Filterable post tab End
+
+

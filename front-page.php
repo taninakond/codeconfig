@@ -943,7 +943,7 @@ get_header() ;?>
 
     <section class="section codeconfig-counter">
         <div class="container">
-        <?php get_template_part( '/counter_template_2' ); ?>
+            <?php get_template_part( '/counter_template' ); ?>
         </div>
     </section> <!-- CodeConfig Counter  -->
 
@@ -952,33 +952,7 @@ get_header() ;?>
         <div class="cc-shape shape-small shape-blue shape-middle shape-bottom"></div>
         <div class="cc-shape shape-small shape-blue shape-right shape-top-0"></div>
         <div class="container testimonial-container">
-            <div class="section-title text-center">
-                <?php $testimonial_section_title = get_field('testimonial_section_title'); if($testimonial_section_title){echo $testimonial_section_title['testimonial_section_content']; } ?>
-            </div>
-
-            <div class="cc-testimonial-wrapper">
-                <button class="slider-button prev">❮</button>
-
-                <?php $testimonial_list = get_field('testimonial_list'); foreach($testimonial_list as $testimonial): ?>
-                <div class="testimonial-item text-center active fade">
-                    <img src="<?php echo $testimonial['add_clients_photo']['url']; ?>" alt="<?php echo $testimonial['add_clients_photo']['alt']; ?>">
-                    <p class="testimonial-content"><?php echo $testimonial['client_quote']; ?></p>
-                    <h4 class="testimonial-name"><?php echo $testimonial['client_name']; ?></h4>
-                    <p class="testimonial-title"><?php echo $testimonial['client_title']; ?></p>
-                </div> <!-- Testimonial Item  -->
-                <?php endforeach ; ?>
-
-                <div class="dots">
-                    <span class="dot" data-index="1"></span>
-                    <span class="dot" data-index="2"></span>
-                    <span class="dot" data-index="3"></span>
-                    <span class="dot" data-index="4"></span>
-                    <span class="dot" data-index="5"></span>
-                </div>
-
-                <button class="slider-button next">❯</button>
-            </div>
-
+            <?php get_template_part('/testimonial_template') ?>
         </div>
     </section> <!-- CodeConfig Testimonial  -->
 
@@ -994,38 +968,48 @@ get_header() ;?>
             <div class="cc-blog d-flex flex-wrap">
 
                 <?php
-                    global $paged, $wp_query, $wp;
-                    $args = wp_parse_args($wp->matched_query);
-                    if ( !empty ( $args['paged'] ) && 0 == $paged ) {
-                    $wp_query->set('paged', $args['paged']);
-                    $paged = $args['paged'];
-                    }
-                    $temp = $wp_query;
-                    $wp_query= null;
-                    $wp_query = new WP_Query();
-                    $wp_query->query('paged='.$paged.'&showposts=10&cat='.get_option('prototype_blog_cat'));
+                // The Query
+                $args = array(
+                    'post_type'      => 'post',
+                    'posts_per_page' => 6, // Limit to one post
+                    'order'          => 'DESC', // Order by post date in descending order
+                );
+
+                $query = new WP_Query($args);
+
+                // The Loop
+                if ($query->have_posts()) :
+                    while ($query->have_posts()) :
+                        $query->the_post();
+                        ?>
+                        <div class="blog-item text-center" <?php post_class(); ?> >
+                            <div class="post-thumbnail">
+                                    <a href="<?php the_permalink(); ?>">
+                                        <?php if(has_post_thumbnail()) {the_post_thumbnail(); } ?>
+                                    </a>
+                            </div>
+                            <div class="post-details">
+                                <ul class="post-meta unstyle d-flex space-between">
+                                    <li><img src="<?php echo get_theme_file_uri('/assets/images/date-icon.svg'); ?>" alt=""><span><?php the_date(  ); ?></span></li>
+                                    <li><img src="<?php echo get_theme_file_uri('/assets/images/comment-icon.svg'); ?>" alt=""><span><?php comments_number(  ); ?></span></li>
+                                </ul>
+                                <a href="<?php the_permalink(  ); ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
+                                <div class="post-excerpt"><?php the_excerpt(); ?></div>
+                                <a class="post-btn" href="<?php the_permalink(  ); ?>"><?php echo __('Read more', 'codeconfig'); ?><img src="<?php echo get_theme_file_uri('/assets/images/right-arrow.svg'); ?>" alt=""> </a>
+                            </div>
+                        </div> <!-- Blog Item  -->
+                        <?php
+                    endwhile;
+                else :
+                    // If no posts are found
+                    echo 'No posts found.';
+                endif;
+
+                // Restore original post data
+                wp_reset_postdata();
                 ?>
-
-                <?php while($wp_query->have_posts()): $wp_query->the_post(); ?>
-                <div class="blog-item text-center">
-                   <div class="post-thumbnail">
-                        <a href="<?php the_permalink(); ?>">
-                            <?php if(has_post_thumbnail()) {the_post_thumbnail(); } ?>
-                        </a>
-                   </div>
-                    <div class="post-details">
-                        <ul class="post-meta unstyle d-flex space-between">
-                            <li><img src="<?php echo get_theme_file_uri('/assets/images/date-icon.svg'); ?>" alt=""><span><?php the_date(  ); ?></span></li>
-                            <li><img src="<?php echo get_theme_file_uri('/assets/images/comment-icon.svg'); ?>" alt=""><span><?php comments_number(  ); ?></span></li>
-                        </ul>
-                        <a href="<?php the_permalink(  ); ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
-                        <div class="post-excerpt"><?php the_excerpt(); ?></div>
-                        <a class="post-btn" href="<?php the_permalink(  ); ?>"><?php echo __('Read more', 'codeconfig'); ?><img src="<?php echo get_theme_file_uri('/assets/images/right-arrow.svg'); ?>" alt=""> </a>
-                    </div>
-                </div> <!-- Blog Item  -->
-                <?php endwhile; ?>
-
             </div> <!-- CC Blog  -->
         </div>
     </section> <!-- Blog  -->
+
 <?php get_footer() ;?>

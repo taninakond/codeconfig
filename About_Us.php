@@ -74,7 +74,7 @@ get_header() ;?>
     <div class="cc-shape shape-medium shape-red shape-left shape-bottom"></div>
     <div class="cc-shape shape-medium shape-blue shape-right shape-bottom"></div>
     <div class="container">
-        <?php get_template_part( '/counter_template_2' ); ?>
+        <?php get_template_part( '/counter_template' ); ?>
     </div>
 </section> <!-- CodeConfig Counter  -->
 
