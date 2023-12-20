@@ -65,12 +65,18 @@ get_header() ;?>
                 </select>
             </div>
             <div class="blog-search">
-                <div class="search-container">
-                    <form action="/action_page.php">
-                        <input type="text" placeholder="Search anything...." name="search">
-                        <button type="submit"><img src="<?php echo get_theme_file_uri('/assets/images/search-icon.svg') ?>" alt=""></i></button>
+
+                <div class="post-search-box">
+                    <form role="search" method="get" class="search-form" action="<?php echo esc_url(home_url('/')); ?>">
+                        <label>
+                            <span class="screen-reader-text"><?php echo _x('Search for:', 'label', 'your-theme-text-domain'); ?></span>
+                            <input type="search" class="search-field" placeholder="<?php echo esc_attr_x('Search', 'placeholder', 'your-theme-text-domain'); ?>" value="<?php echo get_search_query(); ?>" name="s" />
+                        </label>
+                        <button type="submit" class="search-submit"><img src="<?php echo get_theme_file_uri('/assets/images/search-icon.svg') ?>" alt=""></button>
                     </form>
                 </div>
+
+
             </div>
         </div> <!-- Blog Head  -->
 
@@ -91,35 +97,10 @@ get_header() ;?>
                     if ($query->have_posts()) :
                         while ($query->have_posts()) :
                             $query->the_post();
-                            ?>
+            
+            
+                            get_template_part( 'blog_template' );
 
-                            <div class="blog-item text-center">
-                                <div class="post-thumbnail">
-                                    <a href="<?php the_permalink(); ?>">
-                                    <?php if(has_post_thumbnail()) {the_post_thumbnail(); } ?>
-                                </a>
-                                </div>
-                                <div class="post-details">
-                                    <ul class="post-meta unstyle flex-center">
-
-                                        <?php
-                                        // Post time
-                                        $post_id = get_the_ID();
-                                        $post_time = get_post_time('U', false, $post_id);
-                                        $time_difference = human_time_diff($post_time, current_time('U')) . ' Read';
-                                        ?>
-
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/date-icon.svg'); ?>" alt=""><span><?php echo get_the_date(); ?></span></li>
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/time-icon.svg'); ?>" alt=""><span><?php echo $time_difference; ?></span></li>
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/comment-icon.svg'); ?>" alt=""><span><?php comments_number(  ); ?></span></li>
-                                    </ul>
-                                    <a href="<?php the_permalink(); ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
-                                    <div class="post-excerpt"><?php the_excerpt(); ?></div>
-                                    <a class="post-btn" href="<?php the_permalink(); ?>"><?php echo __('Continue Reading', 'codeconfig') ?><img src="<?php echo get_theme_file_uri('/assets/images/right-arrow.svg'); ?>" alt=""> </a>
-                                </div>
-                            </div> <!-- Blog Item  -->
-                    
-                            <?php
                     endwhile;
                 else :
                     // If no posts are found
@@ -128,7 +109,7 @@ get_header() ;?>
 
                 // Restore original post data
                 wp_reset_postdata();
-                ?>
+            ?>
 
         </div> <!-- CC Blog All -->
 
@@ -150,35 +131,9 @@ get_header() ;?>
 
                     while ($popular_query->have_posts()) {
                         $popular_query->the_post();
-                        ?>
+            
+                        get_template_part( 'blog_template' );
 
-                        <div class="blog-item text-center">
-                            <div class="post-thumbnail">
-                                <a href="<?php the_permalink(); ?>">
-                                <?php if(has_post_thumbnail()) {the_post_thumbnail(); } ?>
-                            </a>
-                            </div>
-                            <div class="post-details">
-                                <ul class="post-meta unstyle flex-center">
-
-                                    <?php
-                                    // Post time
-                                    $post_id = get_the_ID();
-                                    $post_time = get_post_time('U', false, $post_id);
-                                    $time_difference = human_time_diff($post_time, current_time('U')) . ' Read';
-                                    ?>
-
-                                    <li><img src="<?php echo get_theme_file_uri('/assets/images/date-icon.svg'); ?>" alt=""><span><?php echo get_the_date(); ?></span></li>
-                                    <li><img src="<?php echo get_theme_file_uri('/assets/images/time-icon.svg'); ?>" alt=""><span><?php echo $time_difference; ?></span></li>
-                                    <li><img src="<?php echo get_theme_file_uri('/assets/images/comment-icon.svg'); ?>" alt=""><span><?php comments_number(  ); ?></span></li>
-                                </ul>
-                                <a href="<?php the_permalink(); ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
-                                <div class="post-excerpt"><?php the_excerpt(); ?></div>
-                                <a class="post-btn" href="<?php the_permalink(); ?>"><?php echo __('Continue Reading', 'codeconfig') ?><img src="<?php echo get_theme_file_uri('/assets/images/right-arrow.svg'); ?>" alt=""> </a>
-                            </div>
-                        </div> <!-- Blog Item  -->
-                    
-                    <?php
                     }
                     // Restore original post data
                     wp_reset_postdata();
@@ -205,35 +160,9 @@ get_header() ;?>
                     if ($query->have_posts()) :
                         while ($query->have_posts()) :
                             $query->the_post();
-                            ?>
+            
+                            get_template_part( 'blog_template' );
 
-                            <div class="blog-item text-center">
-                                <div class="post-thumbnail">
-                                    <a href="<?php the_permalink(); ?>">
-                                    <?php if(has_post_thumbnail()) {the_post_thumbnail(); } ?>
-                                </a>
-                                </div>
-                                <div class="post-details">
-                                    <ul class="post-meta unstyle flex-center">
-
-                                        <?php
-                                        // Post time
-                                        $post_id = get_the_ID();
-                                        $post_time = get_post_time('U', false, $post_id);
-                                        $time_difference = human_time_diff($post_time, current_time('U')) . ' Read';
-                                        ?>
-
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/date-icon.svg'); ?>" alt=""><span><?php echo get_the_date(); ?></span></li>
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/time-icon.svg'); ?>" alt=""><span><?php echo $time_difference; ?></span></li>
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/comment-icon.svg'); ?>" alt=""><span><?php comments_number(  ); ?></span></li>
-                                    </ul>
-                                    <a href="<?php the_permalink(); ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
-                                    <div class="post-excerpt"><?php the_excerpt(); ?></div>
-                                    <a class="post-btn" href="<?php the_permalink(); ?>"><?php echo __('Continue Reading', 'codeconfig') ?><img src="<?php echo get_theme_file_uri('/assets/images/right-arrow.svg'); ?>" alt=""> </a>
-                                </div>
-                            </div> <!-- Blog Item  -->
-                    
-                            <?php
                     endwhile;
                 else :
                     // If no posts are found
@@ -242,7 +171,7 @@ get_header() ;?>
 
                 // Restore original post data
                 wp_reset_postdata();
-                ?>
+            ?>
 
         </div> <!-- CC Blog Recent -->
 
@@ -268,42 +197,15 @@ get_header() ;?>
                 if ($category_query->have_posts()) {
                     while ($category_query->have_posts()) {
                         $category_query->the_post();
-                        ?>
 
-                            <div class="blog-item text-center">
-                                <div class="post-thumbnail">
-                                    <a href="<?php the_permalink(); ?>">
-                                    <?php if(has_post_thumbnail()) {the_post_thumbnail(); } ?>
-                                </a>
-                                </div>
-                                <div class="post-details">
-                                    <ul class="post-meta unstyle flex-center">
-
-                                        <?php
-                                        // Post time
-                                        $post_id = get_the_ID();
-                                        $post_time = get_post_time('U', false, $post_id);
-                                        $time_difference = human_time_diff($post_time, current_time('U')) . ' Read';
-                                        ?>
-
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/date-icon.svg'); ?>" alt=""><span><?php echo get_the_date(); ?></span></li>
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/time-icon.svg'); ?>" alt=""><span><?php echo $time_difference; ?></span></li>
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/comment-icon.svg'); ?>" alt=""><span><?php comments_number(  ); ?></span></li>
-                                    </ul>
-                                    <a href="<?php the_permalink(); ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
-                                    <div class="post-excerpt"><?php the_excerpt(); ?></div>
-                                    <a class="post-btn" href="<?php the_permalink(); ?>"><?php echo __('Continue Reading', 'codeconfig') ?><img src="<?php echo get_theme_file_uri('/assets/images/right-arrow.svg'); ?>" alt=""> </a>
-                                </div>
-                            </div> <!-- Blog Item  -->
-                    
-                    <?php
+                        get_template_part( 'blog_template' );
                     }
                     // Restore original post data
                     wp_reset_postdata();
                 } else {
                     echo __('No posts found about Products.', 'codeconfig');
                 }
-                ?>
+            ?>
 
         </div> <!-- CC Blog Product -->
 
@@ -329,42 +231,15 @@ get_header() ;?>
                 if ($category_query->have_posts()) {
                     while ($category_query->have_posts()) {
                         $category_query->the_post();
-                        ?>
 
-                            <div class="blog-item text-center">
-                                <div class="post-thumbnail">
-                                    <a href="<?php the_permalink(); ?>">
-                                    <?php if(has_post_thumbnail()) {the_post_thumbnail(); } ?>
-                                </a>
-                                </div>
-                                <div class="post-details">
-                                    <ul class="post-meta unstyle flex-center">
-
-                                        <?php
-                                        // Post time
-                                        $post_id = get_the_ID();
-                                        $post_time = get_post_time('U', false, $post_id);
-                                        $time_difference = human_time_diff($post_time, current_time('U')) . ' Read';
-                                        ?>
-
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/date-icon.svg'); ?>" alt=""><span><?php echo get_the_date(); ?></span></li>
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/time-icon.svg'); ?>" alt=""><span><?php echo $time_difference; ?></span></li>
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/comment-icon.svg'); ?>" alt=""><span><?php comments_number(  ); ?></span></li>
-                                    </ul>
-                                    <a href="<?php the_permalink(); ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
-                                    <div class="post-excerpt"><?php the_excerpt(); ?></div>
-                                    <a class="post-btn" href="<?php the_permalink(); ?>"><?php echo __('Continue Reading', 'codeconfig') ?><img src="<?php echo get_theme_file_uri('/assets/images/right-arrow.svg'); ?>" alt=""> </a>
-                                </div>
-                            </div> <!-- Blog Item  -->
-                    
-                    <?php
+                        get_template_part( 'blog_template' );
                     }
                     // Restore original post data
                     wp_reset_postdata();
                 } else {
                     echo __('No posts found about Guides.', 'codeconfig');
                 }
-                ?>
+            ?>
 
         </div> <!-- CC Blog Guide -->
 
@@ -390,42 +265,15 @@ get_header() ;?>
                 if ($category_query->have_posts()) {
                     while ($category_query->have_posts()) {
                         $category_query->the_post();
-                        ?>
-
-                            <div class="blog-item text-center">
-                                <div class="post-thumbnail">
-                                    <a href="<?php the_permalink(); ?>">
-                                    <?php if(has_post_thumbnail()) {the_post_thumbnail(); } ?>
-                                </a>
-                                </div>
-                                <div class="post-details">
-                                    <ul class="post-meta unstyle flex-center">
-
-                                        <?php
-                                        // Post time
-                                        $post_id = get_the_ID();
-                                        $post_time = get_post_time('U', false, $post_id);
-                                        $time_difference = human_time_diff($post_time, current_time('U')) . ' Read';
-                                        ?>
-
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/date-icon.svg'); ?>" alt=""><span><?php echo get_the_date(); ?></span></li>
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/time-icon.svg'); ?>" alt=""><span><?php echo $time_difference; ?></span></li>
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/comment-icon.svg'); ?>" alt=""><span><?php comments_number(  ); ?></span></li>
-                                    </ul>
-                                    <a href="<?php the_permalink(); ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
-                                    <div class="post-excerpt"><?php the_excerpt(); ?></div>
-                                    <a class="post-btn" href="<?php the_permalink(); ?>"><?php echo __('Continue Reading', 'codeconfig') ?><img src="<?php echo get_theme_file_uri('/assets/images/right-arrow.svg'); ?>" alt=""> </a>
-                                </div>
-                            </div> <!-- Blog Item  -->
-                    
-                    <?php
+          
+                        get_template_part( 'blog_template' );
                     }
                     // Restore original post data
                     wp_reset_postdata();
                 } else {
                     echo __('No posts found about Solutions.', 'codeconfig');
                 }
-                ?>
+            ?>
 
         </div> <!-- CC Blog Solution -->
 
@@ -451,42 +299,15 @@ get_header() ;?>
                 if ($category_query->have_posts()) {
                     while ($category_query->have_posts()) {
                         $category_query->the_post();
-                        ?>
-
-                            <div class="blog-item text-center">
-                                <div class="post-thumbnail">
-                                    <a href="<?php the_permalink(); ?>">
-                                    <?php if(has_post_thumbnail()) {the_post_thumbnail(); } ?>
-                                </a>
-                                </div>
-                                <div class="post-details">
-                                    <ul class="post-meta unstyle flex-center">
-
-                                        <?php
-                                        // Post time
-                                        $post_id = get_the_ID();
-                                        $post_time = get_post_time('U', false, $post_id);
-                                        $time_difference = human_time_diff($post_time, current_time('U')) . ' Read';
-                                        ?>
-
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/date-icon.svg'); ?>" alt=""><span><?php echo get_the_date(); ?></span></li>
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/time-icon.svg'); ?>" alt=""><span><?php echo $time_difference; ?></span></li>
-                                        <li><img src="<?php echo get_theme_file_uri('/assets/images/comment-icon.svg'); ?>" alt=""><span><?php comments_number(  ); ?></span></li>
-                                    </ul>
-                                    <a href="<?php the_permalink(); ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
-                                    <div class="post-excerpt"><?php the_excerpt(); ?></div>
-                                    <a class="post-btn" href="<?php the_permalink(); ?>"><?php echo __('Continue Reading', 'codeconfig') ?><img src="<?php echo get_theme_file_uri('/assets/images/right-arrow.svg'); ?>" alt=""> </a>
-                                </div>
-                            </div> <!-- Blog Item  -->
-                    
-                    <?php
+                        
+                        get_template_part( 'blog_template' );
                     }
                     // Restore original post data
                     wp_reset_postdata();
                 } else {
                     echo __('No Others post found.', 'codeconfig');
                 }
-                ?>
+            ?>
 
         </div> <!-- CC Blog Other -->
 
