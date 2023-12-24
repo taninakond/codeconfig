@@ -47,33 +47,6 @@ function codeconfig_setup()
             'script',
         )
     );
-
-    // Set up the WordPress core custom background feature.
-    add_theme_support(
-        'custom-background',
-        apply_filters(
-            'codeconfig_custom_background_args',
-            array(
-                'default-color' => 'ffffff',
-                'default-image' => '',
-            )
-        )
-    );
-
-    /**
-     * Add support for core custom logo.
-     *
-     * @link https://codex.wordpress.org/Theme_Logo
-     */
-    add_theme_support(
-        'custom-logo',
-        array(
-            'height'      => 250,
-            'width'       => 250,
-            'flex-width'  => true,
-            'flex-height' => true,
-        )
-    );
 }
 add_action('after_setup_theme', 'codeconfig_setup');
 
@@ -110,7 +83,7 @@ add_action('wp_enqueue_scripts', 'codeconfig_scripts');
  * Functions which enhance the theme by hooking into WordPress.
  */
 require get_template_directory() . '/inc/template-functions.php';
-require get_template_directory() . '/inc/nav-walker.php';
+// require get_template_directory() . '/inc/nav-walker.php';
 
 add_filter('use_block_editor_for_post', '__return_false', 10);
 

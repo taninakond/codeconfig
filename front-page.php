@@ -943,7 +943,7 @@ get_header() ;?>
 
     <section class="section codeconfig-counter">
         <div class="container">
-            <?php get_template_part( '/counter_template' ); ?>
+            <?php get_template_part( '/template-parts/counter_template' ); ?>
         </div>
     </section> <!-- CodeConfig Counter  -->
 
@@ -952,7 +952,7 @@ get_header() ;?>
         <div class="cc-shape shape-small shape-blue shape-middle shape-bottom"></div>
         <div class="cc-shape shape-small shape-blue shape-right shape-top-0"></div>
         <div class="container testimonial-container">
-            <?php get_template_part('/testimonial_template') ?>
+            <?php get_template_part('/template-parts/testimonial_template') ?>
         </div>
     </section> <!-- CodeConfig Testimonial  -->
 

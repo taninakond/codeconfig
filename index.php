@@ -46,6 +46,7 @@ get_header() ;?>
         <div class="blog-head d-flex space-between">
             <div class="blog-filter-menu">
                 <ul class="tabs unstyle d-flex align-center hide-mobile">
+                    
                     <li onclick="showTab('all', this)" class="transition tab-btn active">All</li>
                     <li onclick="showTab('popular', this)" class="transition tab-btn">Popular</li>
                     <li onclick="showTab('recent', this)" class="transition tab-btn">Recent</li>
@@ -54,6 +55,7 @@ get_header() ;?>
                     <li onclick="showTab('solution', this)" class="transition tab-btn">Solutions</li>
                     <li onclick="showTab('other', this)" class="transition tab-btn">Others</li>
                 </ul>
+
                 <select name="" id="" class="tabs hide-desktop hide-tab" onchange="showTab(this.value)">
                     <option class="tab-btn" value="all">All</option>
                     <option class="tab-btn" value="popular">Popular</option>

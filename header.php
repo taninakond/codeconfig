@@ -31,7 +31,7 @@
                         'theme_location' => 'header-menu',
                         'menu_class' => 'main-header-menu',
                         'container'      => false,
-                        // 'walker' => new Walker_Nav_Menu_Edit_Custom(), // Use the custom Walker
+                        // 'walker' => new Custom_Nav_Walker(), // Use the custom Walker
                     ] );
                 ?>
             </div>
