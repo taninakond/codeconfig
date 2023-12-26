@@ -1040,6 +1040,10 @@ p {
             background: transparent;
         }
     }
+
+    .wpcf7-spinner {
+        display: none !important;
+    }
 }
 
 footer {
@@ -2560,7 +2564,6 @@ footer {
                             padding: 16px 8px;
                         }
                     }
-                    
                 }
             }
 
