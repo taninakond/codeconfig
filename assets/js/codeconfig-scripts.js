@@ -15,8 +15,18 @@ function Toggler() {
     });
 }
 
+function headerGutter() {
+    // Header gutter for adjusting header height
+    const header = document.querySelector('.codeconfig-header');
+    const header_gutter = document.querySelector('.header_gutter');
+    if (header && header_gutter) {
+        header_gutter.style.height = header.clientHeight + 'px';
+    }
+}
+
 function codeConfigOnLoad(){
     Toggler()
+    headerGutter();
 }
 
 window.addEventListener('load', codeConfigOnLoad);

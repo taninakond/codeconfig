@@ -26,6 +26,10 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
+a {
+  text-decoration: none;
+}
+
 /* #####################################
 *           GLOBAL STYLE
 * ##################################### 
@@ -740,17 +744,6 @@ p {
 **         Home Products Area
 *
 ***************************/
-.codeconfig-products {
-  padding: 80px 0 80px;
-}
-.codeconfig-products .logo-bg::after {
-  position: absolute;
-  content: url(/assets/images/logo-shape.svg);
-  top: -30px;
-  left: -100px;
-  z-index: -1;
-}
-
 .iconbox-wrapper {
   padding-top: 28px;
   -webkit-box-pack: center;
@@ -761,8 +754,7 @@ p {
      -moz-column-gap: 24px;
           column-gap: 24px;
 }
-
-.iconbox {
+.iconbox-wrapper .iconbox {
   width: 100%;
   max-width: 378px;
   padding: 60px 35px;
@@ -773,21 +765,84 @@ p {
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-.iconbox:hover {
+.iconbox-wrapper .iconbox:hover {
   -webkit-box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.2);
           box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.2);
 }
-.iconbox img {
-  max-width: 60px;
-}
-.iconbox a h4 {
+.iconbox-wrapper .iconbox a h4 {
   padding-top: 15px;
   color: var(--Bllack-2, #151826);
   -webkit-transition: all 0.3s ease;
   transition: all 0.3s ease;
 }
-.iconbox a:hover h4 {
+.iconbox-wrapper .iconbox a:hover h4 {
   color: #476DF4;
+}
+
+@-webkit-keyframes animName {
+  0% {
+    -webkit-transform: rotate3d(0);
+            transform: rotate3d(0);
+  }
+  100% {
+    -webkit-transform: rotate3d(360deg);
+            transform: rotate3d(360deg);
+  }
+}
+
+@keyframes animName {
+  0% {
+    -webkit-transform: rotate3d(0);
+            transform: rotate3d(0);
+  }
+  100% {
+    -webkit-transform: rotate3d(360deg);
+            transform: rotate3d(360deg);
+  }
+}
+.codeconfig-products {
+  padding: 80px 0 80px;
+}
+.codeconfig-products .iconbox-wrapper .iconbox .iconbox-icon {
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  height: 63px;
+  width: 63px;
+  margin: 0 auto;
+  border-radius: 50%;
+  background: #4F54D9;
+  -webkit-box-shadow: 3px 4px 8px 0px rgba(255, 255, 255, 0.7) inset;
+          box-shadow: 3px 4px 8px 0px rgba(255, 255, 255, 0.7) inset;
+}
+.codeconfig-products .iconbox-wrapper .iconbox .iconbox-icon svg {
+  position: absolute;
+  height: 102px;
+  width: 105px;
+  top: -19px;
+  left: -22px;
+}
+.codeconfig-products .iconbox-wrapper .iconbox .iconbox-icon svg .rotate {
+  -webkit-animation: animName 4s linear infinite;
+          animation: animName 4s linear infinite;
+}
+.codeconfig-products .iconbox-wrapper .iconbox .iconbox-icon img {
+  max-width: 30px;
+}
+.codeconfig-products .iconbox-wrapper .iconbox .iconbox-icon::after {
+  position: absolute;
+  content: "";
+  width: 100px;
+  height: 100%;
+  bottom: 0;
+  right: 0;
+  background-image: url(/wp-content/themes/codeconfig/assets/images/product-circle-bg.svg);
+  -webkit-animation-name: animName;
+          animation-name: animName;
 }
 
 .codeconfig-excellent-products .container {
@@ -797,6 +852,9 @@ p {
   background: currentColor;
   padding: 30px 35px;
   max-width: 322px;
+}
+.codeconfig-excellent-products .container .iconbox-wrapper .iconbox img {
+  max-width: 60px;
 }
 .codeconfig-excellent-products .container .iconbox-wrapper .iconbox p {
   color: #4F5B6D;
@@ -1050,6 +1108,9 @@ p {
   border-radius: 4px;
   cursor: pointer;
   background: transparent;
+}
+.subscribe-form .wpcf7-spinner {
+  display: none !important;
 }
 
 footer .footer-top {

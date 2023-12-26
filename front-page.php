@@ -910,12 +910,18 @@ get_header() ;?>
                 <div class="cc-shape shape-red shape-small shape-middle shape-top-0"></div>
 
                 <?php $products = get_field('products') ; foreach($products as $product) :?>
+
+
                 <div class="iconbox text-center">
-                    <a href="<?php echo $product['link']['url']; ?>"><img src="<?php echo $product['add_product_image']['url']; ?>" alt="<?php echo $product['add_product_image']['alt']; ?>"></a>
+                    <a class="iconbox-icon" href="<?php echo $product['link']['url']; ?>">
+                    
+                    <img src="<?php echo $product['add_product_image']['url']; ?>" alt="<?php echo $product['add_product_image']['alt']; ?>"></a>
                     <a href="<?php echo $product['link']['url']; ?>"><h4><?php echo $product['link']['title']; ?></h4></a>
                     <p><?php echo $product['description']; ?></p>
                     <a class="post-btn" href="<?php echo $product['link']['url']; ?>"><?php echo __('Explore','codeconfig'); ?> <img src="<?php echo get_theme_file_uri( '/assets/images/right-arrow.svg' ) ;?>" alt=""> </a>
                 </div> <!-- Product Item  -->
+
+
                 <?php endforeach ;?>
             </div>
         </div>
@@ -932,10 +938,12 @@ get_header() ;?>
             <div class="iconbox-wrapper d-flex flex-wrap">
 
                 <?php $excellent_products = get_field('products_excellent'); foreach($excellent_products as $excellent_product) : ?>
+
                 <a href="<?php echo $excellent_product['excellent_product_link']['url']; ?>" class="iconbox text-center" style="color:<?php echo $excellent_product['excellent_product_bg_color'] ?>">
                     <img src="<?php echo $excellent_product['add_excellent_product_image']['url']; ?>" alt="<?php echo $excellent_product['add_excellent_product_image']['alt']; ?>">
                     <p><?php echo $excellent_product['add_excellent_product_description']; ?></p>
                 </a> <!-- Product Item  -->
+                
                 <?php endforeach; ?>
             </div>
         </div>
