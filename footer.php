@@ -35,14 +35,7 @@
 				</div>
 				<div class="right-side d-flex space-between">
 					
-					<div class="footer-menu company">
-						<h4><?php echo __('Company', 'codeconfig'); ?></h4>
-						<ul>
-							<li><a href="#">About Us</a></li>
-							<li><a href="#">Testomonial</a></li>
-							<li><a href="#">Contact Us</a></li>
-						</ul>
-					</div>
+					
 
 					<div class="footer-menu resources">
 						<h4><?php echo __('Resources', 'codeconfig'); ?></h4>
