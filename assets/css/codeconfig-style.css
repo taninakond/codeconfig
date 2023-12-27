@@ -131,6 +131,12 @@ img, svg {
           justify-content: center;
 }
 
+.flex-end {
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: end;
+}
+
 .flex-col {
   -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
@@ -182,29 +188,23 @@ img, svg {
   position: relative;
 }
 
+.absolute {
+  position: absolute;
+}
+
 .cc-shape {
   position: absolute;
   z-index: -1;
+  border-radius: 100%;
+  -webkit-filter: blur(1px);
+          filter: blur(1px);
 }
 
-.cc-shape:before {
-  position: absolute;
-  content: "";
-  width: 100%;
-  height: 100%;
-  border-radius: 500px;
-  -webkit-filter: blur(170px);
-          filter: blur(170px);
-  left: 0;
-  top: 0;
-  z-index: -1;
+.shape-red {
+  background: rgba(255, 13, 106, 0.07);
 }
 
-.shape-red::before {
-  background: rgba(255, 13, 106, 0.12);
-}
-
-.shape-blue::before {
+.shape-blue {
   background: rgba(71, 109, 244, 0.09);
 }
 
@@ -284,7 +284,7 @@ img, svg {
   top: 0;
   width: 930px;
   height: 280px;
-  background-image: url(../images/heading-bg.svg);
+  background-image: url(/wp-content/themes/CodeConfig/assets/images/heading-bg.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -297,7 +297,7 @@ img, svg {
   top: -70px;
   width: 1425px;
   height: 280px;
-  background-image: url(../images/heading-bg-2.svg);
+  background-image: url(/wp-content/themes/CodeConfig/assets/images/heading-bg-2.svg);
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
@@ -443,6 +443,10 @@ p {
   font-weight: 400;
 }
 
+.admin-bar .codeconfig-header {
+  top: 32px;
+}
+
 .codeconfig-header {
   padding: 22px 0;
   position: fixed;
@@ -453,6 +457,7 @@ p {
 }
 .codeconfig-header .header-menu-wrap .logo {
   line-height: 0;
+  display: block;
 }
 .codeconfig-header .header-menu-wrap .logo img {
   max-width: 100%;
@@ -557,9 +562,11 @@ p {
 }
 .codeconfig-header.sticky {
   padding: 10px 0;
-  background-color: #fff;
-  -webkit-box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
+  background-color: rgba(161, 161, 161, 0.22);
+  -webkit-backdrop-filter: saturate(180%) blur(10px);
+          backdrop-filter: saturate(180%) blur(10px);
+  -webkit-box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.3);
+          box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, 0.3);
 }
 .codeconfig-header.sticky .header-menu-wrap .logo img {
   max-width: 70%;
@@ -585,21 +592,32 @@ p {
 **         Hero Area
 *
 ***************************/
-.hero {
+.hero-rotate-circle-style {
+  border-radius: 56px;
+  background: radial-gradient(76.16% 76.16% at 31.97% 19.67%, rgba(255, 255, 255, 0.7) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%), #3D56DE;
+  -webkit-box-shadow: 0px 17px 23px 0px rgba(10, 10, 10, 0.25), 3px 4px 8px 0px rgba(255, 255, 255, 0.7) inset, -10px -12px 37px 0px rgba(0, 0, 0, 0.25) inset, 0px 2px 2px 0px rgba(255, 255, 255, 0.6) inset, 6px 9px 20px 0px rgba(255, 255, 255, 0.3) inset, 0px -3px 8px 0px rgba(255, 255, 255, 0.25) inset;
+          box-shadow: 0px 17px 23px 0px rgba(10, 10, 10, 0.25), 3px 4px 8px 0px rgba(255, 255, 255, 0.7) inset, -10px -12px 37px 0px rgba(0, 0, 0, 0.25) inset, 0px 2px 2px 0px rgba(255, 255, 255, 0.6) inset, 6px 9px 20px 0px rgba(255, 255, 255, 0.3) inset, 0px -3px 8px 0px rgba(255, 255, 255, 0.25) inset;
+}
+
+.codeconfig-hero-area {
   padding: 90px 0 0;
 }
-.hero .hero-wrapper .content-area {
+.codeconfig-hero-area .bg-oval {
+  top: 0;
+  left: 0;
+}
+.codeconfig-hero-area .hero-wrapper .content-area {
   width: 50%;
 }
-.hero .hero-wrapper .content-area h1, .hero .hero-wrapper .content-area p, .hero .hero-wrapper .content-area a {
+.codeconfig-hero-area .hero-wrapper .content-area h1, .codeconfig-hero-area .hero-wrapper .content-area p, .codeconfig-hero-area .hero-wrapper .content-area a {
   position: relative;
   z-index: 1;
 }
-.hero .hero-wrapper .content-area h1 .top-notch, .hero .hero-wrapper .content-area h1 .solution, .hero .hero-wrapper .content-area h1 .wordpress, .hero .hero-wrapper .content-area p .top-notch, .hero .hero-wrapper .content-area p .solution, .hero .hero-wrapper .content-area p .wordpress, .hero .hero-wrapper .content-area a .top-notch, .hero .hero-wrapper .content-area a .solution, .hero .hero-wrapper .content-area a .wordpress {
+.codeconfig-hero-area .hero-wrapper .content-area h1 .top-notch, .codeconfig-hero-area .hero-wrapper .content-area h1 .solution, .codeconfig-hero-area .hero-wrapper .content-area h1 .wordpress, .codeconfig-hero-area .hero-wrapper .content-area p .top-notch, .codeconfig-hero-area .hero-wrapper .content-area p .solution, .codeconfig-hero-area .hero-wrapper .content-area p .wordpress, .codeconfig-hero-area .hero-wrapper .content-area a .top-notch, .codeconfig-hero-area .hero-wrapper .content-area a .solution, .codeconfig-hero-area .hero-wrapper .content-area a .wordpress {
   position: relative;
   z-index: 1;
 }
-.hero .hero-wrapper .content-area h1 .top-notch::after, .hero .hero-wrapper .content-area h1 .solution::after, .hero .hero-wrapper .content-area h1 .wordpress::after, .hero .hero-wrapper .content-area p .top-notch::after, .hero .hero-wrapper .content-area p .solution::after, .hero .hero-wrapper .content-area p .wordpress::after, .hero .hero-wrapper .content-area a .top-notch::after, .hero .hero-wrapper .content-area a .solution::after, .hero .hero-wrapper .content-area a .wordpress::after {
+.codeconfig-hero-area .hero-wrapper .content-area h1 .top-notch::after, .codeconfig-hero-area .hero-wrapper .content-area h1 .solution::after, .codeconfig-hero-area .hero-wrapper .content-area h1 .wordpress::after, .codeconfig-hero-area .hero-wrapper .content-area p .top-notch::after, .codeconfig-hero-area .hero-wrapper .content-area p .solution::after, .codeconfig-hero-area .hero-wrapper .content-area p .wordpress::after, .codeconfig-hero-area .hero-wrapper .content-area a .top-notch::after, .codeconfig-hero-area .hero-wrapper .content-area a .solution::after, .codeconfig-hero-area .hero-wrapper .content-area a .wordpress::after {
   position: absolute;
   left: 0;
   bottom: 2px;
@@ -610,33 +628,39 @@ p {
   width: 100%;
   height: 100%;
 }
-.hero .hero-wrapper .content-area h1 .top-notch::after, .hero .hero-wrapper .content-area p .top-notch::after, .hero .hero-wrapper .content-area a .top-notch::after {
+.codeconfig-hero-area .hero-wrapper .content-area h1 .top-notch::after, .codeconfig-hero-area .hero-wrapper .content-area p .top-notch::after, .codeconfig-hero-area .hero-wrapper .content-area a .top-notch::after {
   background-image: url(/assets/images/top-notch-bg.svg);
 }
-.hero .hero-wrapper .content-area h1 .solution::after, .hero .hero-wrapper .content-area p .solution::after, .hero .hero-wrapper .content-area a .solution::after {
+.codeconfig-hero-area .hero-wrapper .content-area h1 .solution::after, .codeconfig-hero-area .hero-wrapper .content-area p .solution::after, .codeconfig-hero-area .hero-wrapper .content-area a .solution::after {
   background-image: url(/assets/images/solution-bg.svg);
 }
-.hero .hero-wrapper .content-area h1 .wordpress::after, .hero .hero-wrapper .content-area p .wordpress::after, .hero .hero-wrapper .content-area a .wordpress::after {
+.codeconfig-hero-area .hero-wrapper .content-area h1 .wordpress::after, .codeconfig-hero-area .hero-wrapper .content-area p .wordpress::after, .codeconfig-hero-area .hero-wrapper .content-area a .wordpress::after {
   background-image: url(/assets/images/wordpress-bg.svg);
 }
-.hero .hero-wrapper .content-area p {
+.codeconfig-hero-area .hero-wrapper .content-area p {
   font-size: 20px;
   line-height: 30px;
 }
-.hero .hero-wrapper .hero-animation {
+.codeconfig-hero-area .hero-wrapper .hero-animation-wrapper {
   width: 50%;
 }
-
-.hero-animation-wrapper .hero-animation-circle {
-  position: relative;
+.codeconfig-hero-area .hero-wrapper .hero-animation-wrapper .hero-animation-circle {
   height: 450px;
   width: 450px;
   border-radius: 523px;
   border: 2px solid #FFF;
   background: radial-gradient(138.49% 66.88% at 36.14% 16.67%, rgba(255, 115, 115, 0.23) 0%, rgba(94, 46, 46, 0) 86.18%), radial-gradient(83.94% 83.94% at 26.39% 20.83%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%), rgba(79, 93, 215, 0.1);
 }
-
-.hero-animation-wrapper .hero-animation-circle .blue-circle .product-icons-wrapper {
+.codeconfig-hero-area .hero-wrapper .hero-animation-wrapper .hero-animation-circle .blue-circle {
+  height: 295px;
+  width: 295px;
+  border-radius: 523px;
+  border: 2px solid #FFF;
+  background: radial-gradient(138.49% 66.88% at 36.14% 16.67%, rgba(255, 115, 115, 0.23) 0%, rgba(94, 46, 46, 0) 86.18%), radial-gradient(83.94% 83.94% at 26.39% 20.83%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%), #6776FF;
+  -webkit-box-shadow: 4px 38px 62px 0px rgba(0, 0, 0, 0.2), -3px -4px 7px 0px rgba(255, 255, 255, 0.18) inset;
+          box-shadow: 4px 38px 62px 0px rgba(0, 0, 0, 0.2), -3px -4px 7px 0px rgba(255, 255, 255, 0.18) inset;
+}
+.codeconfig-hero-area .hero-wrapper .hero-animation-wrapper .hero-animation-circle .blue-circle .product-icons-wrapper {
   position: absolute;
   height: 100%;
   width: 100%;
@@ -645,42 +669,38 @@ p {
   -webkit-animation: rotate 30s linear infinite;
           animation: rotate 30s linear infinite;
 }
-
-.hero-animation-wrapper .hero-animation-circle .blue-circle .product-icons-wrapper .product-icon {
-  height: 60px;
-  width: 60px;
-  background: #fff;
-  -webkit-box-shadow: inset 0px 9px 20px 14px #6776FF;
-          box-shadow: inset 0px 9px 20px 14px #6776FF;
-  border-radius: 500px;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  border: 2px solid #fff;
+.codeconfig-hero-area .hero-wrapper .hero-animation-wrapper .hero-animation-circle .blue-circle .product-icons-wrapper .product-icon-big {
+  animation: rotate 14s linear 1s infinite reverse;
+  width: 56px;
+  height: 56px;
+  top: 96px;
+  left: 265px;
 }
-
-/* .hero-animation-wrapper .hero-animation-circle .blue-circle .dusky-icon.magical-mouse {
-  translate: translate(100px, 100px)
-} */
-.hero-animation-wrapper .hero-animation-circle .blue-circle .dusky-icon svg {
-  z-index: 1;
+.codeconfig-hero-area .hero-wrapper .hero-animation-wrapper .hero-animation-circle .blue-circle .product-icons-wrapper .product-icon-big svg {
+  width: 27px;
+  height: 27px;
 }
-
-.hero-animation-wrapper .hero-animation-circle .blue-circle {
-  position: relative;
-  height: 295px;
-  width: 295px;
-  border-radius: 523px;
-  border: 2px solid #FFF;
-  background: radial-gradient(138.49% 66.88% at 36.14% 16.67%, rgba(255, 115, 115, 0.23) 0%, rgba(94, 46, 46, 0) 86.18%), radial-gradient(83.94% 83.94% at 26.39% 20.83%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%), #6776FF;
-  -webkit-box-shadow: 4px 38px 62px 0px rgba(0, 0, 0, 0.2), -3px -4px 7px 0px rgba(255, 255, 255, 0.18) inset;
-          box-shadow: 4px 38px 62px 0px rgba(0, 0, 0, 0.2), -3px -4px 7px 0px rgba(255, 255, 255, 0.18) inset;
+.codeconfig-hero-area .hero-wrapper .hero-animation-wrapper .hero-animation-circle .blue-circle .product-icons-wrapper .product-icon-mid {
+  animation: rotate 13s linear 1s infinite reverse;
+  width: 42px;
+  height: 42px;
+  top: -40px;
+  right: -25px;
+}
+.codeconfig-hero-area .hero-wrapper .hero-animation-wrapper .hero-animation-circle .blue-circle .product-icons-wrapper .product-icon-mid svg {
+  width: 20px;
+  height: 20px;
+}
+.codeconfig-hero-area .hero-wrapper .hero-animation-wrapper .hero-animation-circle .blue-circle .product-icons-wrapper .product-icon-small {
+  animation: rotate 13s linear 1s infinite reverse;
+  width: 32px;
+  height: 32px;
+  top: 163px;
+  right: -68px;
+}
+.codeconfig-hero-area .hero-wrapper .hero-animation-wrapper .hero-animation-circle .blue-circle .product-icons-wrapper .product-icon-small svg {
+  width: 15px;
+  height: 15px;
 }
 
 .rocket-icon {
@@ -691,8 +711,7 @@ p {
 }
 
 .dash-circle {
-  -webkit-animation: rotate 50s linear 1s infinite;
-          animation: rotate 50s linear 1s infinite;
+  animation: rotate 50s linear 1s infinite reverse;
   height: 224px;
   width: 224px;
   background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='225' height='225' viewBox='0 0 225 225' fill='none'%3E%3Ccircle cx='112.572' cy='112.533' r='111.283' transform='rotate(67.6616 112.572 112.533)' stroke='white' stroke-opacity='0.23' stroke-width='2' stroke-linecap='square' stroke-linejoin='round' stroke-dasharray='4 23' /%3E%3C/svg%3E");
@@ -705,7 +724,7 @@ p {
   }
   100% {
     -webkit-transform: rotate(460deg);
-    transform: rotate(460deg);
+    transform: rotate(360deg);
   }
 }
 
@@ -716,7 +735,7 @@ p {
   }
   100% {
     -webkit-transform: rotate(460deg);
-    transform: rotate(460deg);
+    transform: rotate(360deg);
   }
 }
 @-webkit-keyframes crossupdown {
@@ -737,6 +756,26 @@ p {
   100% {
     -webkit-transform: translateY(30px);
             transform: translateY(30px);
+  }
+}
+@-webkit-keyframes border-rotation {
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  0% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
+  }
+}
+@keyframes border-rotation {
+  100% {
+    -webkit-transform: rotate(0deg);
+            transform: rotate(0deg);
+  }
+  0% {
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 /***************************
@@ -779,27 +818,6 @@ p {
   color: #476DF4;
 }
 
-@-webkit-keyframes animName {
-  0% {
-    -webkit-transform: rotate3d(0);
-            transform: rotate3d(0);
-  }
-  100% {
-    -webkit-transform: rotate3d(360deg);
-            transform: rotate3d(360deg);
-  }
-}
-
-@keyframes animName {
-  0% {
-    -webkit-transform: rotate3d(0);
-            transform: rotate3d(0);
-  }
-  100% {
-    -webkit-transform: rotate3d(360deg);
-            transform: rotate3d(360deg);
-  }
-}
 .codeconfig-products {
   padding: 80px 0 80px;
 }
@@ -819,30 +837,17 @@ p {
   -webkit-box-shadow: 3px 4px 8px 0px rgba(255, 255, 255, 0.7) inset;
           box-shadow: 3px 4px 8px 0px rgba(255, 255, 255, 0.7) inset;
 }
-.codeconfig-products .iconbox-wrapper .iconbox .iconbox-icon svg {
+.codeconfig-products .iconbox-wrapper .iconbox .iconbox-icon .border-rotate {
   position: absolute;
-  height: 102px;
-  width: 105px;
-  top: -19px;
-  left: -22px;
-}
-.codeconfig-products .iconbox-wrapper .iconbox .iconbox-icon svg .rotate {
-  -webkit-animation: animName 4s linear infinite;
-          animation: animName 4s linear infinite;
+  height: 93px;
+  width: 93px;
+  top: -15px;
+  left: -15px;
+  -webkit-animation: border-rotation 4s linear infinite;
+          animation: border-rotation 4s linear infinite;
 }
 .codeconfig-products .iconbox-wrapper .iconbox .iconbox-icon img {
   max-width: 30px;
-}
-.codeconfig-products .iconbox-wrapper .iconbox .iconbox-icon::after {
-  position: absolute;
-  content: "";
-  width: 100px;
-  height: 100%;
-  bottom: 0;
-  right: 0;
-  background-image: url(/wp-content/themes/codeconfig/assets/images/product-circle-bg.svg);
-  -webkit-animation-name: animName;
-          animation-name: animName;
 }
 
 .codeconfig-excellent-products .container {
@@ -925,37 +930,6 @@ p {
   display: none;
 }
 
-/* Fading animation */
-.fade {
-  -webkit-animation-name: fade;
-          animation-name: fade;
-  -webkit-animation-duration: 1.5s;
-          animation-duration: 1.5s;
-}
-
-@-webkit-keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-
-@keyframes fade {
-  from {
-    opacity: 0.4;
-  }
-  to {
-    opacity: 1;
-  }
-}
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-  .text {
-    font-size: 11px;
-  }
-}
 .codeconfig-testimonial .testimonial-container {
   max-width: 860px;
 }
@@ -1893,16 +1867,16 @@ footer .copyright p {
   .codeconfig-header .header-menu-wrap .main-header-menu li a {
     padding: 10px 12px;
   }
-  .hero .hero-wrapper {
+  .codeconfig-hero-area .hero-wrapper {
     -webkit-box-orient: vertical;
     -webkit-box-direction: reverse;
         -ms-flex-direction: column-reverse;
             flex-direction: column-reverse;
   }
-  .hero .hero-wrapper .content-area {
+  .codeconfig-hero-area .hero-wrapper .content-area {
     width: 100%;
   }
-  .hero .hero-wrapper .hero-animation {
+  .codeconfig-hero-area .hero-wrapper .hero-animation {
     width: 100%;
   }
   .codeconfig-counter .counter-wrapper {
@@ -2021,7 +1995,7 @@ footer .copyright p {
   .section {
     padding: 30px 0;
   }
-  .hero {
+  .codeconfig-hero-area {
     padding: 80px 0 0;
   }
   .codeconfig-header .header-menu-wrap .logo-wrapper {
@@ -2436,5 +2410,10 @@ footer .copyright p {
   .post-comments .entry-comments .comment-list .comment .comment-content .reply {
     top: inherit;
     bottom: 10px;
+  }
+}
+@media only screen and (max-width: 300px) {
+  .text {
+    font-size: 11px;
   }
 }

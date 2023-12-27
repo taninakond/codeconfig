@@ -123,6 +123,10 @@ img, svg {
     align-items: center;
     justify-content: center;
 }
+
+.flex-end {
+    justify-content: end;
+}
 .flex-col {
     flex-direction: column;
 }
@@ -162,27 +166,25 @@ img, svg {
 .relative {
     position: relative;
 }
+
+.absolute {
+    position: absolute;
+}
+
 .cc-shape {
     position: absolute;
     z-index: -1;
+    border-radius: 100%;
+    filter: blur(1px);
 }
-.cc-shape:before {
-    position: absolute;
-    content: "";
-    width: 100%;
-    height: 100%;
-    border-radius: 500px;
-    filter: blur(170px);
-    left: 0;
-    top: 0;
-    z-index: -1;
+
+.shape-red {
+    background: rgba(255, 13, 106, 0.07);
 }
-.shape-red::before {
-    background: rgba(255, 13, 106, 0.12);
-}
-.shape-blue::before {
+.shape-blue {
     background: rgba(71, 109, 244, 0.09);
 }
+
 .shape-large {
     width: 1159px;
     height: 1183px;
@@ -207,6 +209,7 @@ img, svg {
     width: 591px;
     height: 381px;
 }
+
 .shape-middle {
     left: calc(50% - 340px);
 }
@@ -244,7 +247,7 @@ img, svg {
     top: 0;
     width: 930px;
     height: 280px;
-    background-image: url(../images/heading-bg.svg);
+    background-image: url(/wp-content/themes/CodeConfig/assets/images/heading-bg.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -256,7 +259,7 @@ img, svg {
     top: -70px;
     width: 1425px;
     height: 280px;
-    background-image: url(../images/heading-bg-2.svg);
+    background-image: url(/wp-content/themes/CodeConfig/assets/images/heading-bg-2.svg);
     background-position: center;
     background-repeat: no-repeat;
     background-size: contain;
@@ -407,6 +410,12 @@ p {
 
 // CodeConfig Header Section Start //
 
+.admin-bar {
+    .codeconfig-header {
+        top: 32px;
+    }
+}
+
 .codeconfig-header {
     padding: 22px 0;
     position: fixed;
@@ -419,6 +428,7 @@ p {
 
         .logo {
             line-height: 0;
+            display: block;
 
             img {
                 max-width: 100%;
@@ -549,8 +559,9 @@ p {
 
     &.sticky {
         padding: 10px 0;
-        background-color: #fff;
-        box-shadow: 0 0 10px rgba(#000000, .4);
+        background-color: rgb(161 161 161 / 22%);
+        backdrop-filter: saturate(180%) blur(10px);
+        box-shadow: 0px 1px 20px 0px rgba(0, 0, 0, .3);
 
         .header-menu-wrap {
         
@@ -586,8 +597,19 @@ p {
 *
 ***************************/ 
 
-.hero {
+// Just For Hero Section //
+.hero-rotate-circle-style {
+    border-radius: 56px;
+    background: radial-gradient(76.16% 76.16% at 31.97% 19.67%, rgba(255, 255, 255, 0.70) 0%, rgba(255, 255, 255, 0.00) 69.79%, rgba(255, 255, 255, 0.00) 100%), #3D56DE;
+    box-shadow: 0px 17px 23px 0px rgba(10, 10, 10, 0.25), 3px 4px 8px 0px rgba(255, 255, 255, 0.70) inset, -10px -12px 37px 0px rgba(0, 0, 0, 0.25) inset, 0px 2px 2px 0px rgba(255, 255, 255, 0.60) inset, 6px 9px 20px 0px rgba(255, 255, 255, 0.30) inset, 0px -3px 8px 0px rgba(255, 255, 255, 0.25) inset;
+}
+
+.codeconfig-hero-area {
     padding: 90px 0 0;
+    .bg-oval {
+        top: 0;
+        left: 0;
+    }
 
     .hero-wrapper {
 
@@ -637,62 +659,78 @@ p {
                 line-height: 30px;
             }
         }
-        .hero-animation {
+        .hero-animation-wrapper {
             width: 50%;
+
+            .hero-animation-circle {
+                height: 450px;
+                width: 450px;
+                border-radius: 523px;
+                border: 2px solid #FFF;
+                background: radial-gradient(138.49% 66.88% at 36.14% 16.67%, rgba(255, 115, 115, 0.23) 0%, rgba(94, 46, 46, 0.00) 86.18%), radial-gradient(83.94% 83.94% at 26.39% 20.83%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0.00) 69.79%, rgba(255, 255, 255, 0.00) 100%), rgba(79, 93, 215, 0.10);
+
+                .blue-circle {
+                    height: 295px;
+                    width: 295px;
+                    border-radius: 523px;
+                    border: 2px solid #FFF;
+                    background: radial-gradient(138.49% 66.88% at 36.14% 16.67%, rgba(255, 115, 115, 0.23) 0%, rgba(94, 46, 46, 0.00) 86.18%), radial-gradient(83.94% 83.94% at 26.39% 20.83%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0.00) 69.79%, rgba(255, 255, 255, 0.00) 100%), #6776FF;
+                    box-shadow: 4px 38px 62px 0px rgba(0, 0, 0, 0.20), -3px -4px 7px 0px rgba(255, 255, 255, 0.18) inset;
+
+                    .product-icons-wrapper {
+                        position: absolute;
+                        height: 100%;
+                        width: 100%;
+                        top: 0;
+                        left: 0;
+                        animation: rotate 30s linear infinite;
+
+                        .product-icon-big {
+                            animation: rotate 14s linear 1s infinite reverse;
+                            width: 56px;
+                            height: 56px;
+                            top: 96px;
+                            left: 265px;
+                        
+                            svg {
+                                width: 27px;
+                                height: 27px;
+                            }
+                        }
+
+                        .product-icon-mid {
+                            animation: rotate 13s linear 1s infinite reverse;
+                            width: 42px;
+                            height: 42px;
+                            top: -40px;
+                            right: -25px;
+                            
+                            svg {
+                                width: 20px;
+                                height: 20px;
+                            }
+                        }
+
+                        .product-icon-small { 
+                            animation: rotate 13s linear 1s infinite reverse;   
+                            width: 32px;
+                            height: 32px;
+                            top: 163px;
+                            right: -68px;
+                        
+                            svg {
+                                width: 15px;
+                                height: 15px;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }
 
 
-.hero-animation-wrapper .hero-animation-circle {
-    position: relative;
-    height: 450px;
-    width: 450px;
-    border-radius: 523px;
-    border: 2px solid #FFF;
-    background: radial-gradient(138.49% 66.88% at 36.14% 16.67%, rgba(255, 115, 115, 0.23) 0%, rgba(94, 46, 46, 0.00) 86.18%), radial-gradient(83.94% 83.94% at 26.39% 20.83%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0.00) 69.79%, rgba(255, 255, 255, 0.00) 100%), rgba(79, 93, 215, 0.10);
-}
-
-.hero-animation-wrapper .hero-animation-circle .blue-circle .product-icons-wrapper {
-    position: absolute;
-    height: 100%;
-    width: 100%;
-    top: 0;
-    left: 0;
-    animation: rotate 30s linear infinite;
-}
-
-.hero-animation-wrapper .hero-animation-circle .blue-circle .product-icons-wrapper .product-icon {
-    height: 60px;
-    width: 60px;
-    background: #fff;
-    box-shadow: inset 0px 9px 20px 14px #6776FF;
-    border-radius: 500px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border: 2px solid #fff;
-}
-
-.hero-animation-wrapper .hero-animation-circle .blue-circle .product-icons-wrapper .product-icon.dropox-logo {}
-
-/* .hero-animation-wrapper .hero-animation-circle .blue-circle .dusky-icon.magical-mouse {
-  translate: translate(100px, 100px)
-} */
-
-.hero-animation-wrapper .hero-animation-circle .blue-circle .dusky-icon svg {
-    z-index: 1;
-}
-
-.hero-animation-wrapper .hero-animation-circle .blue-circle {
-    position: relative;
-    height: 295px;
-    width: 295px;
-    border-radius: 523px;
-    border: 2px solid #FFF;
-    background: radial-gradient(138.49% 66.88% at 36.14% 16.67%, rgba(255, 115, 115, 0.23) 0%, rgba(94, 46, 46, 0.00) 86.18%), radial-gradient(83.94% 83.94% at 26.39% 20.83%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0.00) 69.79%, rgba(255, 255, 255, 0.00) 100%), #6776FF;
-    box-shadow: 4px 38px 62px 0px rgba(0, 0, 0, 0.20), -3px -4px 7px 0px rgba(255, 255, 255, 0.18) inset;
-}
 
 .rocket-icon {
     position: absolute;
@@ -702,7 +740,7 @@ p {
 }
 
 .dash-circle {
-    animation: rotate 50s linear 1s infinite;
+    animation: rotate 50s linear 1s infinite reverse;
     height: 224px;
     width: 224px;
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='225' height='225' viewBox='0 0 225 225' fill='none'%3E%3Ccircle cx='112.572' cy='112.533' r='111.283' transform='rotate(67.6616 112.572 112.533)' stroke='white' stroke-opacity='0.23' stroke-width='2' stroke-linecap='square' stroke-linejoin='round' stroke-dasharray='4 23' /%3E%3C/svg%3E");
@@ -716,7 +754,7 @@ p {
 
     100% {
         -webkit-transform: rotate(460deg);
-        transform: rotate(460deg);
+        transform: rotate(360deg);
     }
 }
 
@@ -730,6 +768,10 @@ p {
     }
 }
 
+@keyframes border-rotation {
+    100% { transform: rotate(0deg); }
+    0% { transform: rotate(360deg); }
+}
 
 
 /***************************
@@ -773,17 +815,10 @@ p {
         }
     }
 }
-
 // Icon Box Wrepper Global For Products End //
-@keyframes animName {
-    0%{
-       transform: rotate3d(0);
-      }
-   100%{
-       transform: rotate3d(360deg);
-      }
-}
+
 .codeconfig-products {
+
     padding: 80px 0 80px;
 
     .iconbox-wrapper {
@@ -801,39 +836,23 @@ p {
                 background: #4F54D9;
                 box-shadow: 3px 4px 8px 0px rgba(255, 255, 255, 0.70) inset;
 
-                svg {
+                .border-rotate {
                     position: absolute;
-                    height: 102px;
-                    width: 105px;
-                    top: -19px;
-                    left: -22px;
-
-                    .rotate {
-                        animation: animName 4s linear infinite;
-                    }
+                    height: 93px;
+                    width: 93px;
+                    top: -15px;
+                    left: -15px;
+                    animation: border-rotation 4s linear infinite;
                 }
 
                 img {
                     max-width: 30px;                   
                 }
-
-                &::after {
-                    position: absolute;
-                    content: "";
-                    width: 100px;
-                    height: 100%;
-                    bottom: 0;
-                    right: 0;
-                    background-image: url(/wp-content/themes/codeconfig/assets/images/product-circle-bg.svg);
-                    animation-name: animName;
-                }
             }
         }
     }
 }
-
-    
-
+   
 .codeconfig-excellent-products {
 
     .container {
@@ -905,28 +924,22 @@ p {
     }
 }
 
-/* Fading animation */
-.fade {
-    animation-name: fade;
-    animation-duration: 1.5s;
-}
+// /* Fading animation */
+// .fade {
+//     animation-name: fade;
+//     animation-duration: 1.5s;
+// }
 
-@keyframes fade {
-    from {
-        opacity: .4
-    }
+// @keyframes fade {
+//     from {
+//         opacity: .4
+//     }
 
-    to {
-        opacity: 1
-    }
-}
+//     to {
+//         opacity: 1
+//     }
+// }
 
-/* On smaller screens, decrease text size */
-@media only screen and (max-width: 300px) {
-    .text {
-        font-size: 11px
-    }
-}
 
 .codeconfig-testimonial {
 
@@ -1955,7 +1968,7 @@ footer {
     }
 
 
-    .hero {
+    .codeconfig-hero-area {
     
         .hero-wrapper {
             flex-direction: column-reverse;
@@ -2129,7 +2142,7 @@ footer {
     }
 
 
-    .hero {
+    .codeconfig-hero-area {
         padding: 80px 0 0;
     }
     .codeconfig-header {
@@ -2630,5 +2643,11 @@ footer {
         top: inherit;
         bottom: 10px;
 
+    }
+}
+
+@media only screen and (max-width: 300px) {
+    .text {
+        font-size: 11px
     }
 }
