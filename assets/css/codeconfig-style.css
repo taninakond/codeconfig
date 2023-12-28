@@ -201,11 +201,11 @@ img, svg {
 }
 
 .shape-red {
-  background: rgba(255, 13, 106, 0.07);
+  background: rgba(255, 13, 106, 0.08);
 }
 
 .shape-blue {
-  background: rgba(71, 109, 244, 0.09);
+  background: rgba(71, 109, 244, 0.1);
 }
 
 .shape-large {
@@ -214,23 +214,18 @@ img, svg {
 }
 
 .shape-medium {
-  width: 873px;
-  height: 873px;
+  width: 830px;
+  height: 830px;
 }
 
 .shape-small {
-  width: 677px;
-  height: 691px;
-}
-
-.shape-xsmall-2 {
-  width: 460px;
-  height: 460px;
+  width: 550px;
+  height: 550px;
 }
 
 .shape-xsmall {
-  width: 298px;
-  height: 303px;
+  width: 300px;
+  height: 300px;
 }
 
 .shape-oval {
@@ -389,6 +384,19 @@ img, svg {
 }
 .post-meta li img {
   width: 18px;
+}
+
+.bg-c-logo {
+  width: 403px;
+  height: 418px;
+  background-image: url(/wp-content/themes/CodeConfig/assets/icons/c-logo.svg);
+  top: -103%;
+  left: -8%;
+  z-index: -1;
+}
+.bg-c-logo:rotate {
+  -webkit-transform: translateY(90deg);
+          transform: translateY(90deg);
 }
 
 /* #####################################
@@ -600,14 +608,26 @@ p {
 }
 
 .codeconfig-hero-area {
-  padding: 90px 0 0;
+  padding: 90px 0;
 }
 .codeconfig-hero-area .bg-oval {
-  top: -200px;
-  left: -70px;
+  top: -38%;
+  left: -6%;
 }
 .codeconfig-hero-area .hero-wrapper .content-area {
   width: 50%;
+}
+.codeconfig-hero-area .hero-wrapper .content-area .bg-circle-2 {
+  top: -31%;
+  left: -52%;
+}
+.codeconfig-hero-area .hero-wrapper .content-area .bg-circle-2 .bg-circle-3 {
+  bottom: 4%;
+  left: 11%;
+}
+.codeconfig-hero-area .hero-wrapper .content-area .bg-circle-4 {
+  top: -20%;
+  right: -20%;
 }
 .codeconfig-hero-area .hero-wrapper .content-area h1, .codeconfig-hero-area .hero-wrapper .content-area p, .codeconfig-hero-area .hero-wrapper .content-area a {
   position: relative;
@@ -629,13 +649,13 @@ p {
   height: 100%;
 }
 .codeconfig-hero-area .hero-wrapper .content-area h1 .top-notch::after, .codeconfig-hero-area .hero-wrapper .content-area p .top-notch::after, .codeconfig-hero-area .hero-wrapper .content-area a .top-notch::after {
-  background-image: url(/assets/images/top-notch-bg.svg);
+  background-image: url(/wp-content/themes/CodeConfig/assets/images/top-notch-bg.svg);
 }
 .codeconfig-hero-area .hero-wrapper .content-area h1 .solution::after, .codeconfig-hero-area .hero-wrapper .content-area p .solution::after, .codeconfig-hero-area .hero-wrapper .content-area a .solution::after {
-  background-image: url(/assets/images/solution-bg.svg);
+  background-image: url(/wp-content/themes/CodeConfig/assets/images/solution-bg.svg);
 }
 .codeconfig-hero-area .hero-wrapper .content-area h1 .wordpress::after, .codeconfig-hero-area .hero-wrapper .content-area p .wordpress::after, .codeconfig-hero-area .hero-wrapper .content-area a .wordpress::after {
-  background-image: url(/assets/images/wordpress-bg.svg);
+  background-image: url(/wp-content/themes/CodeConfig/assets/images/wordpress-bg.svg);
 }
 .codeconfig-hero-area .hero-wrapper .content-area p {
   font-size: 20px;
@@ -650,6 +670,10 @@ p {
   border-radius: 523px;
   border: 2px solid #FFF;
   background: radial-gradient(138.49% 66.88% at 36.14% 16.67%, rgba(255, 115, 115, 0.23) 0%, rgba(94, 46, 46, 0) 86.18%), radial-gradient(83.94% 83.94% at 26.39% 20.83%, rgba(255, 255, 255, 0.41) 0%, rgba(255, 255, 255, 0) 69.79%, rgba(255, 255, 255, 0) 100%), rgba(79, 93, 215, 0.1);
+}
+.codeconfig-hero-area .hero-wrapper .hero-animation-wrapper .hero-animation-circle .bg-circle-6 {
+  top: 25%;
+  left: 93%;
 }
 .codeconfig-hero-area .hero-wrapper .hero-animation-wrapper .hero-animation-circle .blue-circle {
   height: 295px;
@@ -820,6 +844,14 @@ p {
 
 .codeconfig-products {
   padding: 80px 0 80px;
+}
+.codeconfig-products .iconbox-wrapper .bg-circle-7 {
+  top: -8%;
+  right: -5%;
+}
+.codeconfig-products .iconbox-wrapper .bg-circle-9 {
+  top: 48%;
+  left: -12%;
 }
 .codeconfig-products .iconbox-wrapper .iconbox .iconbox-icon {
   position: relative;
@@ -1065,7 +1097,7 @@ p {
 }
 .subscribe-form .submit-btn:after {
   position: absolute;
-  content: url(/assets/images/send-Icon.svg);
+  content: url(/wp-content/themes/CodeConfig/assets/images/send-Icon.svg);
   top: 10px;
   right: 16px;
   z-index: -1;

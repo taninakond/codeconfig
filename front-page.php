@@ -5,21 +5,28 @@
 
 get_header() ;?>
     <section class="section codeconfig-hero-area relative">
-        <div class="cc-shape shape-small shape-red shape-bottom shape-right"></div>
         <div class="cc-shape shape-oval shape-blue bg-oval"></div>
         <div class="container">
             <div class="hero-wrapper flex-center relative">
   
                 <div class="content-area relative">
                     <div class="heading-bg"></div>
-                    <div class="cc-shape shape-blue shape-small shape-middle shape-top-0"></div>
-                    <div class="cc-shape shape-red shape-small shape-left shape-top-0"></div>
+                    <div class="cc-shape shape-red shape-small bg-circle-2">
+                        <div class="cc-shape shape-blue shape-xsmall bg-circle-3"></div>
+                    </div>
+                    <div class="cc-shape shape-blue shape-small bg-circle-4"></div>
 
                     <?php $banner = get_field('banner'); if($banner) { echo $banner['content']; }?>
                 </div>
 
                 <div class="hero-animation-wrapper d-flex flex-end">
                     <div class="hero-animation-circle flex-center relative">
+
+                        <div class="cc-shape shape-medium shape-red bg-circle-5"></div>
+                        
+                        <div class="cc-shape shape-small shape-red bg-circle-6"></div>
+
+
                         <div class="blue-circle flex-center relative">
                             <div class="product-icons-wrapper absolute">
 
@@ -92,19 +99,22 @@ get_header() ;?>
                 </div>
             </div>
         </div>
-    </section>
+    </section> <!-- CodeConfig Header  -->
     
     <section class="section codeconfig-products relative">
-        <div class="cc-shape shape-red shape-medium"></div>
-        <div class="cc-shape shape-blue shape-medium shape-top shape-right"></div>
         <div class="container">
-            <div class="section-title text-center">
-                <div class="logo-bg relative"></div>
+            <div class="section-title text-center relative">
+
+                <div class="bg-c-logo absolute rotate"></div>
+
                 <?php $product_section_title = get_field('product_section_title'); if($product_section_title) {echo $product_section_title['product_section_content']; } ?>
             </div>
 
             <div class="iconbox-wrapper d-flex flex-wrap">
-                <div class="cc-shape shape-red shape-small shape-middle shape-top-0"></div>
+
+                <div class="cc-shape shape-blue shape-medium bg-circle-7"></div>
+                <div class="cc-shape shape-red shape-small bg-circle-8"></div>
+                <div class="cc-shape shape-red shape-medium bg-circle-9"></div>
 
                 <?php $products = get_field('products') ; foreach($products as $product) :?>
 
@@ -135,8 +145,6 @@ get_header() ;?>
     </section> <!-- CodeConfig Products  -->
 
     <section class="section codeconfig-excellent-products relative">
-        <div class="cc-shape shape-blue shape-medium shape-left shape-bottom"></div>
-        <div class="cc-shape shape-red shape-medium shape-right shape-top"></div>
         <div class="container">
             <div class="section-title text-center">
                 <?php $excellent_product = get_field('excellent_product'); if($excellent_product) {echo $excellent_product['excellent_product_content']; } ?>
@@ -144,10 +152,15 @@ get_header() ;?>
 
             <div class="iconbox-wrapper d-flex flex-wrap">
 
+                <div class="cc-shape shape-blue shape-medium shape-left-0 shape-top-center"></div>
+                <div class="cc-shape shape-red shape-medium shape-right-0 shape-top-0"></div>
+
                 <?php $excellent_products = get_field('products_excellent'); foreach($excellent_products as $excellent_product) : ?>
 
                 <a href="<?php echo $excellent_product['excellent_product_link']['url']; ?>" class="iconbox text-center" style="color:<?php echo $excellent_product['excellent_product_bg_color'] ?>">
-                    <img src="<?php echo $excellent_product['add_excellent_product_image']['url']; ?>" alt="<?php echo $excellent_product['add_excellent_product_image']['alt']; ?>">
+                    <div class="icon" style="color: <?php echo $excellent_product['excellent_product_icon_color'] ?>; ">
+                        <img src="<?php echo $excellent_product['add_excellent_product_image']['url']; ?>" alt="<?php echo $excellent_product['add_excellent_product_image']['alt']; ?>">
+                    </div>
                     <p><?php echo $excellent_product['add_excellent_product_description']; ?></p>
                 </a> <!-- Product Item  -->
                 
