@@ -175,7 +175,7 @@ img, svg {
     position: absolute;
     z-index: -1;
     border-radius: 100%;
-    filter: blur(1px);
+    filter: blur(170px);
 }
 
 .shape-red {
@@ -607,8 +607,8 @@ p {
 .codeconfig-hero-area {
     padding: 90px 0 0;
     .bg-oval {
-        top: 0;
-        left: 0;
+        top: -200px;
+        left: -70px;
     }
 
     .hero-wrapper {

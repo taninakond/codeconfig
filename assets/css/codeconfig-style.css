@@ -196,8 +196,8 @@ img, svg {
   position: absolute;
   z-index: -1;
   border-radius: 100%;
-  -webkit-filter: blur(1px);
-          filter: blur(1px);
+  -webkit-filter: blur(170px);
+          filter: blur(170px);
 }
 
 .shape-red {
@@ -603,8 +603,8 @@ p {
   padding: 90px 0 0;
 }
 .codeconfig-hero-area .bg-oval {
-  top: 0;
-  left: 0;
+  top: -200px;
+  left: -70px;
 }
 .codeconfig-hero-area .hero-wrapper .content-area {
   width: 50%;
