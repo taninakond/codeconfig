@@ -1,4 +1,5 @@
-<div class="section-title text-center">
+<div class="section-title text-center relative">
+    <div class="testimonial-c-bg bg-c-logo rotate absolute"></div>
     <?php $testimonial_section_title = get_field('testimonial_section_title', 'option'); if($testimonial_section_title){echo $testimonial_section_title['testimonial_section_content']; } ?>
 </div>
 

@@ -390,13 +390,11 @@ img, svg {
   width: 403px;
   height: 418px;
   background-image: url(/wp-content/themes/CodeConfig/assets/icons/c-logo.svg);
-  top: -103%;
-  left: -8%;
   z-index: -1;
 }
-.bg-c-logo:rotate {
-  -webkit-transform: translateY(90deg);
-          transform: translateY(90deg);
+.bg-c-logo.rotate {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
 }
 
 /* #####################################
@@ -845,6 +843,10 @@ p {
 .codeconfig-products {
   padding: 80px 0 80px;
 }
+.codeconfig-products .section-title .products-c-bg {
+  top: -40%;
+  left: -15%;
+}
 .codeconfig-products .iconbox-wrapper .bg-circle-7 {
   top: -8%;
   right: -5%;
@@ -965,9 +967,13 @@ p {
 .codeconfig-testimonial .testimonial-container {
   max-width: 860px;
 }
+.codeconfig-testimonial .testimonial-container .section-title .testimonial-c-bg {
+  top: -46%;
+  right: -10%;
+}
 .codeconfig-testimonial .testimonial-container .cc-testimonial-wrapper {
   position: relative;
-  padding-top: 30px;
+  padding-top: 30px 0;
 }
 .codeconfig-testimonial .testimonial-container .cc-testimonial-wrapper .testimonial-item {
   background: #fff;

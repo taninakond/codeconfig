@@ -105,7 +105,7 @@ get_header() ;?>
         <div class="container">
             <div class="section-title text-center relative">
 
-                <div class="products-c-bg bg-c-logo absolute rotate"></div>
+                <div class="products-c-bg bg-c-logo absolute"></div>
 
                 <?php $product_section_title = get_field('product_section_title'); if($product_section_title) {echo $product_section_title['product_section_content']; } ?>
             </div>
