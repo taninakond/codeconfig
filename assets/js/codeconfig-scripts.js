@@ -86,12 +86,11 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Event listeners for mouseover and mouseout to control autoplay
-    document
-        .querySelector('.cc-testimonial-wrapper')
-        .addEventListener('mouseover', stopAutoplay);
-    document
-        .querySelector('.cc-testimonial-wrapper')
-        .addEventListener('mouseout', startAutoplay);
+    let testimonialWrapper = document.querySelector('.cc-testimonial-wrapper');
+    if (testimonialWrapper) {
+        testimonialWrapper.addEventListener('mouseover', stopAutoplay);
+        testimonialWrapper.addEventListener('mouseout', startAutoplay);
+    }
 
     showSlides(slideIndex);
 
