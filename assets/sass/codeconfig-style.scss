@@ -109,7 +109,9 @@ img, svg {
 .d-flex {
     display: flex;
 }
-
+.d-grid {
+    display: grid;
+}
 .align-center {
     align-items: center;
 }
@@ -285,6 +287,8 @@ img, svg {
             transform: translateY(-26px);
             overflow: hidden;
             border-radius: 8px;
+            height: 200px;
+            border: 2px solid $primary;
 
             a {
                 display: flex;
@@ -304,10 +308,25 @@ img, svg {
             }
         }
         .post-details {
-            padding: 15px 10px 0;
+            padding: 10px 8px 0;
+
+            .post-meta {
+
+                border-bottom: 1px solid rgba(0, 0, 0, 0.11);;
+                padding-bottom: 15px;
+            
+                li {
+                    display: flex;
+                    animation: ce;
+                    column-gap: 5px;
+            
+                    img {
+                        width: 17px;
+                    }
+                }
+            }
 
             a {
-
                 .post-title {
                     padding-top: 24px;
                     font-size: 20px;
@@ -336,21 +355,7 @@ img, svg {
         }
     }
 }
-.post-meta {
-    column-gap: 2px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.11);;
-    padding-bottom: 15px;
 
-    li {
-        display: flex;
-        animation: ce;
-        column-gap: 10px;
-
-        img {
-            width: 18px;
-        }
-    }
-}
 
 .bg-c-logo {   
     width: 403px;
@@ -658,6 +663,7 @@ p {
                         background-repeat: no-repeat;
                         width: 100%;
                         height: 100%;
+                        z-index: -1;
                     }
                 }
                 .top-notch {
@@ -767,6 +773,10 @@ p {
     bottom: -50px;
     left: 0;
     animation: crossupdown 5s ease-in-out alternate-reverse infinite;
+
+    svg {
+        transform: rotate(42deg) translate(35px, 10px);
+    }
 }
 
 .dash-circle {
@@ -810,24 +820,17 @@ p {
 *
 ***************************/ 
 // Icon Box Wrapper Global For only Products Area //
+
 .iconbox-wrapper {
     padding-top: 28px;
-    justify-content: center;
-    row-gap: 24px;
-    column-gap: 24px;
+    gap: 24px;
 
     .iconbox  {
-        width: 100%;
-        max-width: 378px;
         padding: 60px 35px;
         background: #fff;
         box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.05);
         border-radius: 16px;
         transition: all .3s ease;
-    
-        &:hover {
-            box-shadow: 0px 0px 36px 0px rgba(0, 0, 0, 0.2);
-        }
       
         a {
             h4 {
@@ -846,6 +849,12 @@ p {
     }
 }
 
+.icon-style {
+    margin: 10px auto;
+    border-radius: 50%;
+    box-shadow: 3px 4px 8px 0px rgba(255, 255, 255, 0.70) inset;
+}
+
 .codeconfig-products {
     padding: 80px 0 80px;
     .section-title {
@@ -856,6 +865,7 @@ p {
     }
 
     .iconbox-wrapper {
+        grid-template-columns: repeat(auto-fit , minmax(200px, 1fr));
 
         .bg-circle-7 {
             top: -8%;
@@ -870,17 +880,12 @@ p {
        }
 
         .iconbox {
-            
+           
             .iconbox-icon {
-                position: relative;
-                display: flex;
-                justify-content: center;
+
                 height: 63px;
                 width: 63px;
-                margin: 0 auto;
-                border-radius: 50%;
                 background: #4F54D9;
-                box-shadow: 3px 4px 8px 0px rgba(255, 255, 255, 0.70) inset;
 
                 .border-rotate {
                     position: absolute;
@@ -895,28 +900,42 @@ p {
                     max-width: 30px;                   
                 }
             }
+                
+            &:hover {
+                box-shadow: 0px 0px 36px 0px rgb(79, 84, 217, 0.2);
+            }
         }
     }
 }
-   
+
 .codeconfig-excellent-products {
 
     .container {
         max-width: 1070px;
         
         .iconbox-wrapper {
+            grid-template-columns: repeat(auto-fit , minmax(324px, 1fr));
 
             .iconbox {
                 background: currentColor;
                 padding: 30px 35px;
                 max-width: 322px;
-
-                img {
-                    max-width: 60px;
+                .icon {
+                    height: 60px;
+                    width: 60px;
+                    background: currentColor;
+                    
+                    img {
+                        max-width: 30px;
+                    }
                 }
 
                 p {
                     color: #4F5B6D;
+                }
+      
+                &:hover {
+                    box-shadow: 0px 0px 36px 0px rgba(79, 187, 133, 0.5);
                 }
             }
         }
@@ -990,7 +1009,7 @@ p {
 .codeconfig-testimonial {
 
     .testimonial-container {
-        max-width: 860px;
+
         .section-title {
             .testimonial-c-bg {
                 top: -46%;
@@ -999,9 +1018,11 @@ p {
         }
 
         .cc-testimonial-wrapper {
+            max-width: 900px;
             position: relative;
-            padding-top: 30px 0;
-    
+            padding: 30px 0;
+            margin: auto;
+
             .testimonial-item {
                 background: #fff;
                 box-shadow: 0px 40px 70px 0px rgba(0, 0, 0, 0.05);
@@ -1173,15 +1194,18 @@ footer {
             background-size: cover;
             border-radius: 20px;
 
-            .container {
-                align-items: center;
+            .footer-wrapper {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(300px,1fr));
+                gap: 30px 100px;
 
                 .image-side {
-                    width: 45%;
+                    align-items: flex-end;
+
                 }
                 .content-side {
-                    width: 45%;
-                    padding: 50px 0;
+                    padding: 20px;
+                    margin: auto;
 
                     h2 {
                         color: #151826;

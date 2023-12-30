@@ -1,16 +1,16 @@
 <footer>
 	<div class="footer-top">
 		<div class="footer-top-wrap" style="background-image: url(<?php echo get_theme_file_uri('/assets/images/footer-top-bg.jpg'); ?>);">
-			<div class="container d-flex space-between">
-				<div class="image-side d-flex">
-					<img src="<?php echo get_theme_file_uri('/assets/images/footer-top-img.png'); ?>" alt="">
+			<div class="container">
+				<div class="footer-wrapper">
+					<div class="image-side d-flex">
+						<img src="<?php echo get_theme_file_uri('/assets/images/footer-top-img.png'); ?>" alt="">
 				</div>
-				<div class="content-side">
 					<div class="content-side">
-                        <h2>Explore Our Solutions</h2>
-                        <p>Dive into our top-rated plugins that make your work smoother and better! Upgrade your experience with ease and creativity.</p>
-                        <a class="btn" href="#">Explore Our Product</a>
-                    </div>
+						<h2>Explore Our Solutions</h2>
+						<p>Dive into our top-rated plugins that make your work smoother and better! Upgrade your experience with ease and creativity.</p>
+						<a class="btn" href="#">Explore Our Product</a>
+					</div>
 				</div>
 			</div>
 		</div>
