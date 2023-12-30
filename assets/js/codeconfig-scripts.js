@@ -51,13 +51,20 @@ document.addEventListener('DOMContentLoaded', function () {
     let dots;
 
     // Event listeners for button clicks
-    document.querySelector('.prev').addEventListener('click', function () {
-        changeSlide(-1);
-    });
+    let prev = document.querySelector('.prev');
+    if (prev) {
+        prev.addEventListener('click', function () {
+            changeSlide(-1);
+        });
+    }
 
-    document.querySelector('.next').addEventListener('click', function () {
-        changeSlide(1);
-    });
+    if (next) {
+        let next = document.querySelector('.next');
+
+        next.addEventListener('click', function () {
+            changeSlide(1);
+        });
+    }
 
     // Event listeners for dot clicks
     dots = document.querySelectorAll('.dot');
