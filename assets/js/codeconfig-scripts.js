@@ -1,17 +1,17 @@
-window.addEventListener("scroll", function () {
+window.addEventListener('scroll', function () {
     if (window.pageYOffset > 0) {
-        document.querySelector(".codeconfig-header").classList.add("sticky");
+        document.querySelector('.codeconfig-header').classList.add('sticky');
     } else {
-        document.querySelector(".codeconfig-header").classList.remove("sticky");
+        document.querySelector('.codeconfig-header').classList.remove('sticky');
     }
 });
 
 function Toggler() {
-    const headerToggle = document.querySelector('.toggler'); 
-    const headerMainMenu = document.querySelector('.main-header-menu'); 
+    const headerToggle = document.querySelector('.toggler');
+    const headerMainMenu = document.querySelector('.main-header-menu');
     headerToggle.addEventListener('click', function () {
-        this.classList.toggle('bar-active'); 
-        headerMainMenu.classList.toggle('show-menu')
+        this.classList.toggle('bar-active');
+        headerMainMenu.classList.toggle('show-menu');
     });
 }
 
@@ -24,8 +24,8 @@ function headerGutter() {
     }
 }
 
-function codeConfigOnLoad(){
-    Toggler()
+function codeConfigOnLoad() {
+    Toggler();
     headerGutter();
 }
 
@@ -37,16 +37,14 @@ const testimonialContainer = document.querySelector('.testimonial-container');
 const testimonialItems = document.querySelectorAll('.testimonial-item');
 
 // mobile sub menu start
-const subMenu = document.querySelectorAll(".main-header-menu .has-children");
+const subMenu = document.querySelectorAll('.main-header-menu .has-children');
 
+function subMenuActive() {
+    this.classList.toggle('sub_menu_active');
+}
 
-function subMenuActive(){
-    this.classList.toggle("sub_menu_active");
-};
-
-subMenu.forEach(toggle => toggle.addEventListener('click', subMenuActive));
+subMenu.forEach((toggle) => toggle.addEventListener('click', subMenuActive));
 // mobile sub menu end
-
 
 document.addEventListener('DOMContentLoaded', function () {
     let slideIndex = 1;
@@ -82,32 +80,36 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     // Event listeners for mouseover and mouseout to control autoplay
-    document.querySelector('.cc-testimonial-wrapper').addEventListener('mouseover', stopAutoplay);
-    document.querySelector('.cc-testimonial-wrapper').addEventListener('mouseout', startAutoplay);
+    document
+        .querySelector('.cc-testimonial-wrapper')
+        .addEventListener('mouseover', stopAutoplay);
+    document
+        .querySelector('.cc-testimonial-wrapper')
+        .addEventListener('mouseout', startAutoplay);
 
     showSlides(slideIndex);
 
     function changeSlide(n) {
-        showSlides(slideIndex += n);
+        showSlides((slideIndex += n));
     }
 
     function currentSlide(n) {
-        showSlides(slideIndex = n);
+        showSlides((slideIndex = n));
     }
 
     function showSlides(n) {
-        const slides = document.querySelectorAll(".testimonial-item");
+        const slides = document.querySelectorAll('.testimonial-item');
 
         dots.forEach((dot, index) => {
             const isActive = index === slideIndex - 1;
-            dot.classList.toggle("active", isActive);
+            dot.classList.toggle('active', isActive);
         });
 
         // Handle circular navigation
-        slideIndex = (n > slides.length) ? 1 : (n < 1) ? slides.length : n;
+        slideIndex = n > slides.length ? 1 : n < 1 ? slides.length : n;
 
         slides.forEach((slide, index) => {
-            slide.style.display = (index === slideIndex - 1) ? "block" : "none";
+            slide.style.display = index === slideIndex - 1 ? 'block' : 'none';
         });
     }
 
@@ -115,124 +117,61 @@ document.addEventListener('DOMContentLoaded', function () {
     startAutoplay();
 });
 
-
 // Filterable post tab Start
-    function showTab(tabId, button) {
+function showTab(tabId, button) {
+    var tabContents = document.querySelectorAll('.post-tab-body');
+    tabContents.forEach(function (tabContent) {
+        tabContent.classList.remove('active-tab');
+    });
 
-        var tabContents = document.querySelectorAll('.post-tab-body');
-        tabContents.forEach(function (tabContent) {
-            tabContent.classList.remove('active-tab');
-        });
-
-        var selectedTab = document.getElementById(tabId);
-        if (selectedTab) {
-            selectedTab.classList.add('active-tab');
-        }
-
-        var tabButtons = document.querySelectorAll('.tabs .tab-btn');
-        tabButtons.forEach(function (tabButton) {
-            tabButton.classList.remove('active');
-        });
-
-        if (button) {
-            button.classList.add('active');
-        }
+    var selectedTab = document.getElementById(tabId);
+    if (selectedTab) {
+        selectedTab.classList.add('active-tab');
     }
+
+    var tabButtons = document.querySelectorAll('.tabs .tab-btn');
+    tabButtons.forEach(function (tabButton) {
+        tabButton.classList.remove('active');
+    });
+
+    if (button) {
+        button.classList.add('active');
+    }
+}
 
 // Filterable post tab End
 
-
 jQuery(document).ready(function ($) {
-    $('.salon-type span').on('click', function () {
-        $('.salon-type span').removeClass('active');
+    $('.blog-filter-menu ul li, .tabs').on('click', function () {
+        $('.blog-filter-menu ul li').removeClass('active');
         $(this).addClass('active');
 
-        $('#searchblogpost').val('');
-
-        const filterType = $(this).parent().hasClass('salon-tags')
-            ? 'artist_tag'
-            : 'salon_type';
-        const salonSlug = $(this).data('slug');
+        const catSlug = $(this).data('slug');
         const data = {
-            filterType,
-            salonSlug,
+            catSlug,
         };
         loadPosts(data);
     });
 
-    $('#searchblogpost').on('keyup', function () {
-        let searchpost = $(this).val();
-        loadPosts(null, searchpost);
-    });
-
-    function loadPosts(data = {}, searchpost = '') {
+    function loadPosts(data = {}) {
         let nonce = document.querySelector('.filter-nonce')?.dataset.nonce;
 
-        $('#load-salon-posts').html(
+        $('#load-blog-posts').html(
             `<div class='preloader'><img src="${ajax.preloader}"/></div>`
         );
 
         wp.ajax
-            .post('loadmore_posts', { data, nonce, searchpost })
+            .post('loadmore_posts', { data })
             .done((res) => {
                 if (res) {
-                    $('#load-salon-posts').html(res.page);
+                    $('#load-blog-posts').html(res.page);
                 }
             })
             .fail((err) => {
-                $('#load-salon-posts').html(err.message);
+                $('#load-blog-posts').html(err.message);
                 console.log(err);
             });
     }
 
     loadPosts();
-
-    // Ajax search
-
-    $('#searchpost').on('keyup', function () {
-        let searchedText = $(this).val();
-        loadSearchPosts(searchedText);
-    });
-
-    function loadSearchPosts(searchedText = '') {
-        let searchnonce =
-            document.querySelector('.search-nonce')?.dataset.searchnonce;
-
-        if( ! searchnonce ) {
-			return;
-		}
-		
-		console.log(searchnonce)
-
-        $('#load-salon-posts').html(
-            `<div class='preloader'><img src="${ajax.preloader}"/></div>`
-        );
-
-        wp.ajax
-            .post('search_posts', { searchedText, searchnonce })
-            .done((res) => {
-                console.log(res.page);
-                if (res.page) {
-                    $('#load-searched-posts').html(res.page);
-                }
-            });
-    }
-
-    loadSearchPosts();
-
-    $('.quality-image-nav-slider-init .quality-image-nav-slider').slick({
-        slidesToShow: 1,
-        slidesToScroll: 1,
-        arrows: false,
-        asNavFor: '.quality-image-nav-slider-init .quality-image-nav-slidernav',
-    });
-    $('.quality-image-nav-slider-init .quality-image-nav-slidernav').slick({
-        slidesToShow: 5,
-        slidesToScroll: 1,
-        asNavFor: '.quality-image-nav-slider-init .quality-image-nav-slider',
-        dots: true,
-        focusOnSelect: true,
-    });
 });
-
-

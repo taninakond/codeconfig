@@ -67,12 +67,13 @@ function codeconfig_scripts()
     if (is_page('dusky-dark-mode')) {
         wp_enqueue_script('dusky-scripts', get_template_directory_uri() . '/assets/js/dusky-scripts.js', array('jquery'), time(), true);
     } else {
-        wp_enqueue_script('codeconfig-scripts', get_template_directory_uri() . '/assets/js/codeconfig-scripts.js', array('jquery'), time(), true);
+        wp_enqueue_script('codeconfig-scripts', get_template_directory_uri() . '/assets/js/codeconfig-scripts.js', array('jquery', 'wp-util'), time(), true);
     }
     
 
     $data = array(
         'site_url' => get_template_directory_uri(),
+        'preloader' => '/wp-content/themes/codeconfid/assets/images/ajax-loader.gif',
         'admin_ajax'   => admin_url('admin-ajax.php'),
     );
     wp_localize_script('codeconfig-scripts', 'ajax', $data);
@@ -117,87 +118,81 @@ add_action("wp_ajax_nopriv_loadmore_posts", "codeconfig_loadmore_posts_function"
 
 function codeconfig_loadmore_posts_function()
 {
+	
+    $data = isset($_POST['data']) ? $_POST['data'] : '';
+    $nonce = isset($_POST['nonce']) ? $_POST['nonce'] : '';
 
+//     if (!wp_verify_nonce($nonce, 'filter_nonce')) {
+//         wp_send_json_error(array('message' => '<div class="error-message">You are not in proper way!</div>'));
+//         die();
+//     }
 
-    // $page = $_POST['page'];
-    // $posts_per_page = 6;
+    $args = array(
+        'post_type'      => 'post',
+        'posts_per_page' => -1,
+    );
 
-
-    // if ($_POST['offset']) {
-    // 	$offset = $_POST['offset'];
-    // }
-    // if ($page > 2) {
-    // 	for ($i = 3; $i <= $page; $i++) {
-    // 		$offset = $offset + $posts_per_page;
-    // 	}
-    // }
-
-
-    $args = [
-        'post_type' => 'post',
-        'posts_per_page' => -1
-    ];
-
-    if ($_POST['slug']) {
-        $args['tax_query'] =  array(
-            array(
-                'taxonomy' => 'category',
-                'field'    => 'slug',
-                'terms'    => $_POST['slug'],
-            ),
+    // Taxonomy query for both category and tags
+    if (!empty($data)) {
+        $args['tax_query'][] = array(
+            'taxonomy' => 'category', // Change this to your custom tags taxonomy name
+            'field'    => 'slug',
+            'terms'    => sanitize_text_field($data['catSlug']),
         );
     }
 
     $loop = new WP_Query($args);
 
+    ob_start();
 
     if ($loop->have_posts()) :
         while ($loop->have_posts()) : $loop->the_post(); ?>
+            
 
-            <article id="post-<?php the_ID(); ?>" <?php post_class('blog-box transition'); ?>>
-                <div class="blog-box-media">
-                    <?php if (has_post_thumbnail()) {
-                        the_post_thumbnail();
-                    } ?>
-                </div>
+<div class="blog-item text-center">
+    <div class="post-thumbnail">
+        <a href="<?php the_permalink(); ?>">
+        <?php if(has_post_thumbnail()) {the_post_thumbnail(); } ?>
+    </a>
+    </div>
+    <div class="post-details">
+        <ul class="post-meta unstyle flex-center">
 
-                <div class="blog-box-content">
-                    <div class="admin-date">
-                        <div class="date d-flex">
-                            <img src="<?php echo get_theme_file_uri('/assets/images/icons/date-icon.svg'); ?>" alt="">
-                            <h6><?php echo get_the_date(); ?></h6>
-                        </div>
+            <?php
+            // Post time
+            $post_id = get_the_ID();
+            $post_time = get_post_time('U', false, $post_id);
+            $time_difference = human_time_diff($post_time, current_time('U')) . ' Read';
+            ?>
 
-                        <div class="comment d-flex">
-                            <img src="<?php echo get_theme_file_uri('/assets/images/comment.svg'); ?>" alt="">
-                            <h6><?php echo get_comments_number(); ?></h6>
-                        </div>
-                    </div>
-                    <a class="post-title" href="<?php the_permalink(); ?>"><?php echo wp_kses_post(get_the_title()); ?></a>
-                    <p><?php echo wp_trim_words(get_the_content(), 20, '...'); ?></p>
-
-                    <div class="button-comment">
-
-                        <div class="blog-button">
-                            <a href="<?php the_permalink(); ?>" class="btn2">Read More<span>&#8605;</span></a>
-                        </div>
-                    </div>
-                </div>
-            </article><!-- / BLOG-BOX -->
-
+            <li><img src="<?php echo get_theme_file_uri('/assets/images/date-icon.svg'); ?>" alt=""><span><?php echo get_the_date(); ?></span></li>
+            <li><img src="<?php echo get_theme_file_uri('/assets/images/time-icon.svg'); ?>" alt=""><span><?php echo $time_difference; ?></span></li>
+            <li><img src="<?php echo get_theme_file_uri('/assets/images/comment-icon.svg'); ?>" alt=""><span><?php comments_number(  ); ?></span></li>
+        </ul>
+        <a href="<?php the_permalink(); ?>"><h3 class="post-title"><?php the_title(); ?></h3></a>
+        <div class="post-excerpt"><?php the_excerpt(); ?></div>
+        <a class="post-btn" href="<?php the_permalink(); ?>"><?php echo __('Continue Reading', 'codeconfig') ?><img src="<?php echo get_theme_file_uri('/assets/images/right-arrow.svg'); ?>" alt=""> </a>
+    </div>
+</div> <!-- Blog Item  --> 
         <?php
         endwhile;
-    else : ?>
+        wp_reset_postdata(); // Reset the post data after the loop
+    else :
+        ?>
         <div class="entry-content notResult col-md-12 col-sm-12 col-xs-12">
             <h4 class="no-content text-center" style="padding: 0 0 50px; margin-top: 30px;">
-                <?php _e('No more posts!!!', 'codeconfig'); ?>
+                <?php _e('No posts found!!!', 'hello-elementor-child'); ?>
             </h4>
         </div>
-<?php
-    endif;
+        <?php
 
+    endif;
+    $my_html = ob_get_contents();
+    ob_end_clean();
+    wp_send_json_success(array('page' => $my_html));
     die();
 }
+
 
 
 
