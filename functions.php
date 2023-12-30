@@ -73,7 +73,7 @@ function codeconfig_scripts()
 
     $data = array(
         'site_url' => get_template_directory_uri(),
-        'preloader' => '/wp-content/themes/codeconfid/assets/images/ajax-loader.gif',
+        'preloader' => '/wp-content/themes/codeconfig/assets/images/ajax-loader.gif',
         'admin_ajax'   => admin_url('admin-ajax.php'),
     );
     wp_localize_script('codeconfig-scripts', 'ajax', $data);
