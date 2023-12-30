@@ -172,30 +172,8 @@ get_header();
 			comments_template();
 			};
 		?>
-
-		<div class="all-comment text-center">
-			<a href="#" class="btn">view All</a>
-		</div>
 	</div>
 </section> <!--Post Comments -->
-
-<section class="section contact-form-section relative">
-
-	<div class="cc-shape shape-medium shape-blue shape-left shape-top-0"></div>
-	<div class="cc-shape shape-medium shape-red shape-right shape-bottom"></div>
-
-	<div class="container single-blog-container">
-		<div class="section-title text-center">
-			<h2><?php echo __('Have something', 'codeconfig') ?> <span><?php echo __('to say?', 'codeconfig') ?></span></h2>
-			<p><?php echo __("Your email stays private, we won't publish it.", "codeconfig") ?></p>
-		</div>
-
-		<div class="contact-form">
-			<?php echo do_shortcode( '[contact-form-7 id="833c8ef" title="Contact form"]' ); ?>
-		</div>
-	</div>
-</section>
-
 
 
 
