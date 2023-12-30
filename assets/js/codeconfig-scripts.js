@@ -58,9 +58,8 @@ document.addEventListener('DOMContentLoaded', function () {
         });
     }
 
+    let next = document.querySelector('.next');
     if (next) {
-        let next = document.querySelector('.next');
-
         next.addEventListener('click', function () {
             changeSlide(1);
         });
