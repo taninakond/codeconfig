@@ -408,12 +408,12 @@ get_header() ;?>
 
                 <?php $excellent_products = get_field('products_excellent'); foreach($excellent_products as $excellent_product) : ?>
 
-                <a href="<?php echo $excellent_product['excellent_product_link']['url']; ?>" class="iconbox text-center" style="color:<?php echo $excellent_product['excellent_product_bg_color'] ?>">
+                <div class="iconbox text-center" style="color:<?php echo $excellent_product['excellent_product_bg_color'] ?>">
                     <div class="icon flex-center icon-style" style="color: <?php echo $excellent_product['excellent_product_icon_color'] ?>; ">
                         <img src="<?php echo $excellent_product['add_excellent_product_image']['url']; ?>" alt="<?php echo $excellent_product['add_excellent_product_image']['alt']; ?>">
                     </div>
                     <p><?php echo $excellent_product['add_excellent_product_description']; ?></p>
-                </a> <!-- Product Item  -->
+                </div> <!-- Product Item  -->
                 
                 <?php endforeach; ?>
             </div>
